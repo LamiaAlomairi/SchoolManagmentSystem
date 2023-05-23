@@ -5,10 +5,7 @@ import com.School_Managment_System.School_Managment_System.Models.Student;
 import com.School_Managment_System.School_Managment_System.Services.Course_Service;
 import com.School_Managment_System.School_Managment_System.Services.Student_Service;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -26,5 +23,10 @@ public class Course_Controller {
     public Course getCourseById(@RequestParam Long id) {
 
         return course_service.getCourseById(id);
+    }
+
+    @PostMapping(value = "add")
+    public String addCourse(@RequestBody Course course){
+        return "Course saved" + course.getCourse_name();
     }
 }
