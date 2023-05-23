@@ -24,6 +24,7 @@ public class Course_Service {
     }
 
     public void addCourse(Course course){
+
         course_repository.save(course);
     }
 }
