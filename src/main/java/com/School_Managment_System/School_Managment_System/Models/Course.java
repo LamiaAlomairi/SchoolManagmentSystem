@@ -28,4 +28,8 @@ public class Course {
     @OneToOne
     @JoinColumn(name = "teacher_id", referencedColumnName = "teacher_id")
     Teacher teacher;
+
+    @OneToOne
+    @JoinColumn(name = "class_id", referencedColumnName = "id")
+    School_Class school_class;
 }
