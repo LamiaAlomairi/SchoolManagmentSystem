@@ -20,4 +20,8 @@ public class Teacher {
     Integer age;
     String phone_number;
     String major;
+
+    @OneToOne
+    @JoinColumn(name = "course_id", referencedColumnName = "course_id")
+    Course course;
 }
