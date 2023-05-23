@@ -1,14 +1,12 @@
 package com.School_Managment_System.School_Managment_System.Controllers;
 
+import com.School_Managment_System.School_Managment_System.Models.Course;
 import com.School_Managment_System.School_Managment_System.Models.Student;
 import com.School_Managment_System.School_Managment_System.Models.Teacher;
 import com.School_Managment_System.School_Managment_System.Services.Student_Service;
 import com.School_Managment_System.School_Managment_System.Services.Teacher_Service;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -26,5 +24,10 @@ public class Student_Controller {
     public Student getStudentById(@RequestParam Long id) {
 
         return student_service.getStudentById(id);
+    }
+
+    @PostMapping(value = "add")
+    public String addStudent(@RequestBody Student student){
+        return "Course saved" + student.getName();
     }
 }
