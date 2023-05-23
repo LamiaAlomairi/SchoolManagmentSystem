@@ -25,6 +25,11 @@ public class Student_Service {
     }
 
     public void addStudent(Student student){
+
         student_repository.save(student);
+    }
+
+    public void  deleteStudent(Student student){
+        student_repository.delete(student);
     }
 }
