@@ -25,6 +25,7 @@ public class Course_Controller {
 
     @PostMapping(value = "add")
     public String addCourse(@RequestBody Course course){
-        return "Course saved" + course.getCourse_name();
+        course_service.addCourse(course);
+        return "Course added";
     }
 }
