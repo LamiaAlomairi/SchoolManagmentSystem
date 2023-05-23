@@ -22,4 +22,8 @@ public class Course_Service {
 
         return course_repository.findById(id).get();
     }
+
+    public void addCourse(Course course){
+        course_repository.save(course);
+    }
 }

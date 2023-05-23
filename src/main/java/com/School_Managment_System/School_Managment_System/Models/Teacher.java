@@ -16,6 +16,8 @@ public class Teacher {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long teacher_id;
     String name;
+
+
     String gender;
     Integer age;
     String phone_number;
