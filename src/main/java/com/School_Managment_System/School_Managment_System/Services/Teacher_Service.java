@@ -1,5 +1,6 @@
 package com.School_Managment_System.School_Managment_System.Services;
 
+import com.School_Managment_System.School_Managment_System.Models.Student;
 import com.School_Managment_System.School_Managment_System.Models.Teacher;
 import com.School_Managment_System.School_Managment_System.Repositories.Teacher_Repository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,5 +19,9 @@ public class Teacher_Service {
     public Teacher getTeacherById(Long id) {
 
         return teacher_repository.findById(id).get();
+    }
+
+    public void addTeacher(Teacher teacher){
+        teacher_repository.save(teacher);
     }
 }
