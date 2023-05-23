@@ -25,4 +25,8 @@ public class School_Class_Service {
 
         school_class_repository.save(school_class);
     }
+
+    public void deleteSchool_Class(School_Class school_class){
+        school_class_repository.delete(school_class);
+    }
 }
