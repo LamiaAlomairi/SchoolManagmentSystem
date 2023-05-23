@@ -28,4 +28,10 @@ public class Teacher_Controller {
         teacher_service.addTeacher(teacher);
         return "Teacher added";
     }
+
+    @DeleteMapping(value = "delete")
+    public String deleteTeacher(@RequestBody Teacher teacher){
+        teacher_service.deleteTeacher(teacher);
+        return "Teacher "+teacher.getName()+" is deleted";
+    }
 }
