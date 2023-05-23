@@ -1,5 +1,6 @@
 package com.School_Managment_System.School_Managment_System.Services;
 
+import com.School_Managment_System.School_Managment_System.Models.Course;
 import com.School_Managment_System.School_Managment_System.Models.Student;
 import com.School_Managment_System.School_Managment_System.Models.Teacher;
 import com.School_Managment_System.School_Managment_System.Repositories.Student_Repository;
@@ -21,5 +22,9 @@ public class Student_Service {
     public Student getStudentById(Long id) {
 
         return student_repository.findById(id).get();
+    }
+
+    public void addStudent(Student student){
+        student_repository.save(student);
     }
 }
