@@ -27,4 +27,8 @@ public class Course_Service {
 
         course_repository.save(course);
     }
+
+    public void deleteCourse(Course course){
+        
+    }
 }
