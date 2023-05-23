@@ -29,7 +29,7 @@ public class Course {
     @JoinColumn(name = "teacher_id", referencedColumnName = "teacher_id")
     Teacher teacher;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "class_id", referencedColumnName = "id")
     School_Class school_class;
 }

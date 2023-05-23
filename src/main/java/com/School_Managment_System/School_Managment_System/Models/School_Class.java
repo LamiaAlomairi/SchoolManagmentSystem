@@ -1,10 +1,12 @@
 package com.School_Managment_System.School_Managment_System.Models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Getter
 @Setter
@@ -19,7 +21,7 @@ public class School_Class {
     Float size;
     String class_code;
 
-    @OneToOne
-    @JoinColumn(name = "course_id", referencedColumnName = "course_id")
-    Course course;
+    @OneToMany(mappedBy = "school_class")
+    @JsonIgnore
+    private List<Course> courses;
 }
