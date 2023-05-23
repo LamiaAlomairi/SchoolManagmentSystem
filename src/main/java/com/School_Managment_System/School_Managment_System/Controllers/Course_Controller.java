@@ -1,9 +1,7 @@
 package com.School_Managment_System.School_Managment_System.Controllers;
 
 import com.School_Managment_System.School_Managment_System.Models.Course;
-import com.School_Managment_System.School_Managment_System.Models.Student;
 import com.School_Managment_System.School_Managment_System.Services.Course_Service;
-import com.School_Managment_System.School_Managment_System.Services.Student_Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
