@@ -28,4 +28,10 @@ public class School_Class_Controller {
         school_class_service.addSchool_Class(school_class);
         return "Class added";
     }
+
+    @DeleteMapping(value = "delete")
+    public  String deleteSchool_Class(@RequestBody School_Class school_class){
+        school_class_service.deleteSchool_Class(school_class);
+        return "Class Room deleted";
+    }
 }
