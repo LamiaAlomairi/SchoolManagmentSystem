@@ -18,4 +18,8 @@ public class School_Class {
     String name;
     Float size;
     String class_code;
+
+    @OneToOne
+    @JoinColumn(name = "course_id", referencedColumnName = "course_id")
+    Course course;
 }
