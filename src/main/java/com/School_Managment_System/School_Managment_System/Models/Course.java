@@ -18,8 +18,8 @@ public class Course {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long course_id;
     String course_name;
-    Float grade;
-    String course_class;
+    String description;
+    String course_code;
 
     @ManyToMany(mappedBy = "courses")
     @JsonIgnore
