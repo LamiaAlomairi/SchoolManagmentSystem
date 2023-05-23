@@ -25,6 +25,7 @@ public class Teacher_Controller {
 
     @PostMapping(value = "add")
     public String addTeacher(@RequestBody Teacher teacher){
-        return "Teacher " + teacher.getName() +" saved";
+        teacher_service.addTeacher(teacher);
+        return "Teacher added";
     }
 }
