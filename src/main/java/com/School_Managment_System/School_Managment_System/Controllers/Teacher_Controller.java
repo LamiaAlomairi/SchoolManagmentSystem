@@ -1,5 +1,6 @@
 package com.School_Managment_System.School_Managment_System.Controllers;
 
+import com.School_Managment_System.School_Managment_System.Models.Student;
 import com.School_Managment_System.School_Managment_System.Models.Teacher;
 import com.School_Managment_System.School_Managment_System.Services.Teacher_Service;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,5 +22,10 @@ public class Teacher_Controller {
     public Teacher getTeacherById(@RequestParam Long id) {
 
         return teacher_service.getTeacherById(id);
+    }
+
+    @PostMapping(value = "add")
+    public String addTeacher(@RequestBody Teacher teacher){
+        return "Teacher " + teacher.getName() +" saved";
     }
 }

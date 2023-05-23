@@ -28,6 +28,6 @@ public class Student_Controller {
 
     @PostMapping(value = "add")
     public String addStudent(@RequestBody Student student){
-        return "Course saved" + student.getName();
+        return "Student saved" + student.getName();
     }
 }
