@@ -15,6 +15,7 @@ public class Student_Course {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
+    Double grade;
 
     @ManyToOne
     @JoinColumn(name = "student_id", referencedColumnName = "student_id")
