@@ -36,9 +36,9 @@ public class Course_Service {
             course.setCourse_name(updateData.getCourse_name());
             course.setCourse_code(updateData.getCourse_code());
             course.setDescription(updateData.getDescription());
-            course.setStudents(updateData.getStudents());
+            course.setStudent_courses(updateData.getStudent_courses());
             course.setTeacher(updateData.getTeacher());
-            course.setSchool_class(updateData.getSchool_class());
+            course.setClass_room(updateData.getClass_room());
 
             return course_repository.save(course);
         }
