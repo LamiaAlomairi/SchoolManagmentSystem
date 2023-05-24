@@ -3,6 +3,8 @@ package com.School_Managment_System.School_Managment_System.Controllers;
 import com.School_Managment_System.School_Managment_System.Models.Teacher;
 import com.School_Managment_System.School_Managment_System.Services.Teacher_Service;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -30,8 +32,7 @@ public class Teacher_Controller {
     }
 
     @DeleteMapping("{id}")
-    public String deleteTeacher(@RequestBody Teacher teacher){
-        teacher_service.deleteTeacher(teacher);
-        return "Teacher "+teacher.getName()+" is deleted";
+    public ResponseEntity<HttpStatus> deleteTeacher(@PathVariable long id){
+        
     }
 }
