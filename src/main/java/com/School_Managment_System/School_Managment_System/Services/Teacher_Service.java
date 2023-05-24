@@ -26,6 +26,7 @@ public class Teacher_Service {
     }
 
     public void deleteTeacher(Teacher teacher){
+
         teacher_repository.delete(teacher);
     }
 }
