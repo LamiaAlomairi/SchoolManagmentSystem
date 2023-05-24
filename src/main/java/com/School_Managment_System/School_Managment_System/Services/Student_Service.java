@@ -34,9 +34,11 @@ public class Student_Service {
         Student student = student_repository.findById(id).orElse(null);
         if (student != null) {
             student.setName(updateData.getName());
-            student.setAge(updateData.getAge());
-            student.setGender(updateData.getGender());
-            student.setParents_number(updateData.getParents_number());
+            student.setEmail(updateData.getEmail());
+            student.setNationality(updateData.getNationality());
+            student.setCreatedDate(updateData.getCreatedDate());
+            student.setIsActive(updateData.getIsActive());
+            student.setUpdateDate(updateData.getUpdateDate());
             student.setStudent_courses(updateData.getStudent_courses());
 
             return student_repository.save(student);
