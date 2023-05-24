@@ -32,6 +32,6 @@ public class Student_Service {
     }
 
     public Student updateStudent(Long id, Student updateData){
-
+        Student student = student_repository.findById(id).orElse(null);
     }
 }
