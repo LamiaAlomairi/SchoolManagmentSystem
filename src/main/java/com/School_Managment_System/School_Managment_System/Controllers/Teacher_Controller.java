@@ -14,8 +14,6 @@ import java.util.List;
 public class Teacher_Controller {
     @Autowired
     Teacher_Service teacher_service;
-    @Autowired
-    Teacher_Repository teacher_repository;
     @GetMapping(value = "getAll")
     public List<Teacher> getAllTeachers() {
 
@@ -40,9 +38,9 @@ public class Teacher_Controller {
     }
 
     @PutMapping("{id}")
-    public ResponseEntity<Teacher> updateTeacher(@PathVariable Long id, @RequestBody Teacher teacher){
-        Teacher update = teacher_service.updateTeacher(id, teacher);
-        if (update != null) {
+    public ResponseEntity<Teacher> updateTeacher(@PathVariable Long id, @RequestBody Teacher updateData){
+        Teacher teacher = teacher_service.updateTeacher(id, updateData);
+        if (teacher != null) {
             return ResponseEntity.ok(teacher);
         } else {
             return ResponseEntity.notFound().build();
