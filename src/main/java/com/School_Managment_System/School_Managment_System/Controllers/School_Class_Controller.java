@@ -1,7 +1,6 @@
 package com.School_Managment_System.School_Managment_System.Controllers;
 
 import com.School_Managment_System.School_Managment_System.Models.School_Class;
-import com.School_Managment_System.School_Managment_System.Models.Student;
 import com.School_Managment_System.School_Managment_System.Services.School_Class_Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
