@@ -1,6 +1,7 @@
 package com.School_Managment_System.School_Managment_System.Services;
 
 import com.School_Managment_System.School_Managment_System.Models.Course;
+import com.School_Managment_System.School_Managment_System.Models.School_Class;
 import com.School_Managment_System.School_Managment_System.Models.Student;
 import com.School_Managment_System.School_Managment_System.Repositories.Course_Repository;
 import com.School_Managment_System.School_Managment_System.Repositories.Student_Repository;
@@ -30,5 +31,9 @@ public class Course_Service {
 
     public void deleteCourse(Long id) {
         course_repository.deleteById(id);
+    }
+
+    public Course updateCourse(Long id, Course updateData){
+
     }
 }
