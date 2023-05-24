@@ -29,7 +29,7 @@ public class Teacher_Controller {
         return "Teacher added";
     }
 
-    @DeleteMapping(value = "delete")
+    @DeleteMapping("{id}")
     public String deleteTeacher(@RequestBody Teacher teacher){
         teacher_service.deleteTeacher(teacher);
         return "Teacher "+teacher.getName()+" is deleted";
