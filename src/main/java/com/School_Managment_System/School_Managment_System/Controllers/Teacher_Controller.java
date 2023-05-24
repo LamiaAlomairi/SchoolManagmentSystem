@@ -43,5 +43,7 @@ public class Teacher_Controller {
     }
 
     @PutMapping("/{id}")
-    
+    public ResponseEntity<Teacher> updateTeacher(@PathVariable Long id, @RequestBody Teacher teacher){
+
+    }
 }
