@@ -25,7 +25,7 @@ public class Course {
     @JsonIgnore
     private List<Student> students;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "teacher_id", referencedColumnName = "teacher_id")
     Teacher teacher;
 
