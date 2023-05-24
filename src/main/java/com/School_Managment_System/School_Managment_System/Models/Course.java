@@ -25,9 +25,9 @@ public class Course {
     @JsonIgnore
     private List<Student_Course> student_courses;
 
-    @ManyToOne
-    @JoinColumn(name = "teacher_id", referencedColumnName = "teacher_id")
-    Teacher teacher;
+    @OneToMany(mappedBy = "course")
+    @JsonIgnore
+    private List<Teacher> teachers;
 
     @ManyToOne
     @JoinColumn(name = "class_id", referencedColumnName = "id")

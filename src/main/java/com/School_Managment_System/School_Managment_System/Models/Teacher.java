@@ -20,7 +20,7 @@ public class Teacher {
     String phone_number;
     String major;
 
-    @OneToMany
-    @JsonIgnore
-    private List<Course> courses;
+    @ManyToOne
+    @JoinColumn(name = "course_id", referencedColumnName = "course_id")
+    Course course;
 }
