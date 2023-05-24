@@ -34,11 +34,8 @@ public class Teacher_Service {
 
         if (teacher != null) {
             teacher.setName(updateData.getName());
-            teacher.setAge(updateData.getAge());
             teacher.setMajor(updateData.getMajor());
-            teacher.setGender(updateData.getGender());
             teacher.setPhone_number(updateData.getPhone_number());
-            teacher.setCourses(updateData.getCourses());
 
             return teacher_repository.save(teacher);
         }
