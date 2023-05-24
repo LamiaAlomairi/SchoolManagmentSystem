@@ -1,6 +1,5 @@
 package com.School_Managment_System.School_Managment_System.Services;
 
-import com.School_Managment_System.School_Managment_System.Models.Student;
 import com.School_Managment_System.School_Managment_System.Models.Teacher;
 import com.School_Managment_System.School_Managment_System.Repositories.Teacher_Repository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +27,4 @@ public class Teacher_Service {
     public void deleteTeacher(Long id) {
         teacher_repository.deleteById(id);
     }
-
-
 }
