@@ -25,8 +25,9 @@ public class Teacher_Service {
         teacher_repository.save(teacher);
     }
 
-    public void deleteTeacher(Teacher teacher){
-
-        teacher_repository.delete(teacher);
+    public void deleteTeacher(Long id) {
+        teacher_repository.deleteById(id);
     }
+
+
 }

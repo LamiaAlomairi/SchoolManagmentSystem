@@ -1,19 +1,24 @@
 package com.School_Managment_System.School_Managment_System.Controllers;
 
 import com.School_Managment_System.School_Managment_System.Models.Teacher;
+import com.School_Managment_System.School_Managment_System.Repositories.Teacher_Repository;
 import com.School_Managment_System.School_Managment_System.Services.Teacher_Service;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.config.ConfigDataResourceNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(value = "teacher")
 public class Teacher_Controller {
     @Autowired
     Teacher_Service teacher_service;
+    @Autowired
+    Teacher_Repository teacher_repository;
     @GetMapping(value = "getAll")
     public List<Teacher> getAllTeachers() {
 
@@ -33,6 +38,8 @@ public class Teacher_Controller {
 
     @DeleteMapping("{id}")
     public ResponseEntity<HttpStatus> deleteTeacher(@PathVariable long id){
-        
+        Optional<Teacher> teacher = teacher_repository.findById(id);
+        teacher_repository.delete(teacher);
+        return "Teacher "+teacher.getName()+" is deleted";
     }
 }
