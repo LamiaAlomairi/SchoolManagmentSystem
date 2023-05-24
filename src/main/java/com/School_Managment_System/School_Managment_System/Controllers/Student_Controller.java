@@ -1,6 +1,7 @@
 package com.School_Managment_System.School_Managment_System.Controllers;
 
 import com.School_Managment_System.School_Managment_System.Models.Student;
+import com.School_Managment_System.School_Managment_System.Models.Teacher;
 import com.School_Managment_System.School_Managment_System.Services.Student_Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -34,5 +35,10 @@ public class Student_Controller {
     public ResponseEntity<String> deleteStudent(@PathVariable long id){
         student_service.deleteStudent(id);
         return ResponseEntity.ok("Student deleted successfully.");
+    }
+
+    @PutMapping("{id}")
+    public ResponseEntity<Student> updateStudent(@PathVariable Long id, @RequestBody Student updateData){
+
     }
 }
