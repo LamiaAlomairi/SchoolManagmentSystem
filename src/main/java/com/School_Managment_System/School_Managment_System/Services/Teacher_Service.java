@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class Teacher_Service {
@@ -30,16 +29,16 @@ public class Teacher_Service {
         teacher_repository.deleteById(id);
     }
 
-    public Teacher updateTeacher(Long id, Teacher teacher){
-        Optional<Teacher> update = teacher_repository.findById(id);
+    public Teacher updateTeacher(Long id, Teacher updateData){
+        Teacher teacher = teacher_repository.findById(id).orElse(null);
 
-        if (update != null) {
-            teacher.setName(teacher.getName());
-            teacher.setAge(teacher.getAge());
-            teacher.setMajor(teacher.getMajor());
-            teacher.setGender(teacher.getGender());
-            teacher.setPhone_number(teacher.getPhone_number());
-            teacher.setCourses(teacher.getCourses());
+        if (teacher != null) {
+            teacher.setName(updateData.getName());
+            teacher.setAge(updateData.getAge());
+            teacher.setMajor(updateData.getMajor());
+            teacher.setGender(updateData.getGender());
+            teacher.setPhone_number(updateData.getPhone_number());
+            teacher.setCourses(updateData.getCourses());
 
             return teacher_repository.save(teacher);
         }
