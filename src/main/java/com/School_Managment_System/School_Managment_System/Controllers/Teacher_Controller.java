@@ -37,9 +37,8 @@ public class Teacher_Controller {
     }
 
     @DeleteMapping("{id}")
-    public ResponseEntity<HttpStatus> deleteTeacher(@PathVariable long id){
-        Optional<Teacher> teacher = teacher_repository.findById(id);
-        teacher_repository.delete(teacher);
-        return "Teacher "+teacher.getName()+" is deleted";
+    public ResponseEntity<String> deleteTeacher(@PathVariable long id){
+        teacher_service.deleteTeacher(id);
+        return ResponseEntity.ok("Entity deleted successfully.");
     }
 }
