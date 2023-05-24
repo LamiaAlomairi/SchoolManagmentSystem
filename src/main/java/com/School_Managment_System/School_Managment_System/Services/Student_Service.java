@@ -33,5 +33,15 @@ public class Student_Service {
 
     public Student updateStudent(Long id, Student updateData){
         Student student = student_repository.findById(id).orElse(null);
+        if (student != null) {
+            student.setName(updateData.getName());
+            student.setAge(updateData.getAge());
+            student.setGender(updateData.getGender());
+            student.setParents_number(updateData.getParents_number());
+            student.setCourses(updateData.getCourses());
+
+            return student_repository.save(student);
+        }
+        return null;
     }
 }
