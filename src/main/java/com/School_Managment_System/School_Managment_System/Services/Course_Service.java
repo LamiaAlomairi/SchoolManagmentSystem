@@ -1,10 +1,7 @@
 package com.School_Managment_System.School_Managment_System.Services;
 
 import com.School_Managment_System.School_Managment_System.Models.Course;
-import com.School_Managment_System.School_Managment_System.Models.School_Class;
-import com.School_Managment_System.School_Managment_System.Models.Student;
 import com.School_Managment_System.School_Managment_System.Repositories.Course_Repository;
-import com.School_Managment_System.School_Managment_System.Repositories.Student_Repository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
