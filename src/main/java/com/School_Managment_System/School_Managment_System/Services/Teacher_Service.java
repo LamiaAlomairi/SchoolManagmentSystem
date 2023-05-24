@@ -38,7 +38,7 @@ public class Teacher_Service {
             teacher.setGender(teacher.getGender());
             teacher.setPhone_number(teacher.getPhone_number());
             teacher.setCourses(teacher.getCourses());
-            // Save the updated entity
+
             return teacher_repository.save(teacher);
         }
         return null;

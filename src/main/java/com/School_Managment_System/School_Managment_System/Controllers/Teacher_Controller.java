@@ -41,8 +41,8 @@ public class Teacher_Controller {
 
     @PutMapping("{id}")
     public ResponseEntity<Teacher> updateTeacher(@PathVariable Long id, @RequestBody Teacher teacher){
-        teacher_service.updateTeacher(id, teacher);
-        if (teacher != null) {
+        Teacher update = teacher_service.updateTeacher(id, teacher);
+        if (update != null) {
             return ResponseEntity.ok(teacher);
         } else {
             return ResponseEntity.notFound().build();
