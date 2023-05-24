@@ -1,6 +1,7 @@
 package com.School_Managment_System.School_Managment_System.Controllers;
 
 import com.School_Managment_System.School_Managment_System.Models.Course;
+import com.School_Managment_System.School_Managment_System.Models.School_Class;
 import com.School_Managment_System.School_Managment_System.Services.Course_Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -34,5 +35,10 @@ public class Course_Controller {
     public ResponseEntity<String> deleteCourse(@PathVariable long id){
         course_service.deleteCourse(id);
         return ResponseEntity.ok("Course deleted successfully.");
+    }
+
+    @PutMapping("{id}")
+    public ResponseEntity<Course> updateCourse(@PathVariable Long id, @RequestBody Course updateData){
+
     }
 }
