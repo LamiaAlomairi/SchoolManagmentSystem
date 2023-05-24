@@ -12,7 +12,7 @@ import java.util.List;
 @Setter
 @Data
 @Entity
-@Table(name = "school_class")
+@Table(name = "class_room")
 public class Class_room {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,7 +21,7 @@ public class Class_room {
     Float size;
     String class_code;
 
-    @OneToMany(mappedBy = "school_class")
+    @OneToMany(mappedBy = "class_room")
     @JsonIgnore
     private List<Course> courses;
 }

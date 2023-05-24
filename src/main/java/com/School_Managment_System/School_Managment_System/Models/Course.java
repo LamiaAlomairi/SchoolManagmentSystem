@@ -31,5 +31,5 @@ public class Course {
 
     @ManyToOne
     @JoinColumn(name = "class_id", referencedColumnName = "id")
-    School_Class school_class;
+    Class_room class_room;
 }
