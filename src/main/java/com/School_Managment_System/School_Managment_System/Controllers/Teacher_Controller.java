@@ -41,4 +41,7 @@ public class Teacher_Controller {
         teacher_service.deleteTeacher(id);
         return ResponseEntity.ok("Entity deleted successfully.");
     }
+
+    @PutMapping("/{id}")
+    
 }
