@@ -18,9 +18,6 @@ public class Student {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long student_id;
     String name;
-    String gender;
-    Integer age;
-    String parents_number;
 
     @OneToMany(mappedBy = "student")
     @JsonIgnore
