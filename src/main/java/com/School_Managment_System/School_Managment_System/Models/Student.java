@@ -1,5 +1,6 @@
 package com.School_Managment_System.School_Managment_System.Models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -21,7 +22,7 @@ public class Student {
     Integer age;
     String parents_number;
 
-    @ManyToMany
-    @JoinTable(name = "student_course", joinColumns = @JoinColumn(name = "student_id"), inverseJoinColumns = @JoinColumn(name = "course_id"))
+    @OneToMany(mappedBy = "student")
+    @JsonIgnore
     private List<Course> courses;
 }
