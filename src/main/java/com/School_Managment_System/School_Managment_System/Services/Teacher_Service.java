@@ -29,6 +29,6 @@ public class Teacher_Service {
     }
 
     public Teacher updateTeacher(Long id, Teacher teacher){
-
+        teacher_repository.findById(id);
     }
 }
