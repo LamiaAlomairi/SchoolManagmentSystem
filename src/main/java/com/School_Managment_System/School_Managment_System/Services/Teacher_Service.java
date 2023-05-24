@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
+
 @Service
 public class Teacher_Service {
     @Autowired
@@ -29,9 +31,9 @@ public class Teacher_Service {
     }
 
     public Teacher updateTeacher(Long id, Teacher teacher){
-        teacher_repository.findById(id);
+        Optional<Teacher> update = teacher_repository.findById(id);
 
-        if (teacher != null) {
+        if (update != null) {
             teacher.setName(teacher.getName());
             teacher.setAge(teacher.getAge());
             teacher.setMajor(teacher.getMajor());
