@@ -30,5 +30,17 @@ public class Teacher_Service {
 
     public Teacher updateTeacher(Long id, Teacher teacher){
         teacher_repository.findById(id);
+
+        if (teacher != null) {
+            teacher.setName(teacher.getName());
+            teacher.setAge(teacher.getAge());
+            teacher.setMajor(teacher.getMajor());
+            teacher.setGender(teacher.getGender());
+            teacher.setPhone_number(teacher.getPhone_number());
+            teacher.setCourses(teacher.getCourses());
+            // Save the updated entity
+            return teacher_repository.save(teacher);
+        }
+        return null;
     }
 }
