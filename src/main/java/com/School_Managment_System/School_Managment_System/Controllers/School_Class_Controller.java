@@ -39,6 +39,11 @@ public class School_Class_Controller {
 
     @PutMapping("{id}")
     public ResponseEntity<School_Class> updateClassRoom(@PathVariable Long id, @RequestBody School_Class updateData){
-        
+        School_Class classRoom = school_class_service.updateClassRoom(id, updateData);
+        if (classRoom != null) {
+            return ResponseEntity.ok(classRoom);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 }
