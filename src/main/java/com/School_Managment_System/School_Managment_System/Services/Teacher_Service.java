@@ -27,4 +27,8 @@ public class Teacher_Service {
     public void deleteTeacher(Long id) {
         teacher_repository.deleteById(id);
     }
+
+    public Teacher updateTeacher(Long id, Teacher teacher){
+
+    }
 }
