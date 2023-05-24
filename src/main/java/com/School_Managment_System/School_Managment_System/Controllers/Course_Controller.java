@@ -39,6 +39,11 @@ public class Course_Controller {
 
     @PutMapping("{id}")
     public ResponseEntity<Course> updateCourse(@PathVariable Long id, @RequestBody Course updateData){
-
+        Course course = course_service.updateCourse(id, updateData);
+        if (course != null) {
+            return ResponseEntity.ok(course);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 }
