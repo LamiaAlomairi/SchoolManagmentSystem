@@ -32,6 +32,15 @@ public class School_Class_Service {
     }
 
     public School_Class updateClassRoom(Long id, School_Class updateData){
+        School_Class classRoom = school_class_repository.findById(id).orElse(null);
+        if (classRoom != null) {
+            classRoom.setName(updateData.getName());
+            classRoom.setClass_code(updateData.getClass_code());
+            classRoom.setSize(updateData.getSize());
+            classRoom.setCourses(updateData.getCourses());
 
+            return school_class_repository.save(classRoom);
+        }
+        return null;
     }
 }
