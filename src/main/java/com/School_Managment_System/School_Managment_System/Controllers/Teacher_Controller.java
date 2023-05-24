@@ -42,7 +42,7 @@ public class Teacher_Controller {
         return ResponseEntity.ok("Entity deleted successfully.");
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("{id}")
     public ResponseEntity<Teacher> updateTeacher(@PathVariable Long id, @RequestBody Teacher teacher){
         teacher_service.updateTeacher(id, teacher);
         if (teacher != null) {
