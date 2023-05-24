@@ -1,6 +1,7 @@
 package com.School_Managment_System.School_Managment_System.Services;
 
 import com.School_Managment_System.School_Managment_System.Models.School_Class;
+import com.School_Managment_System.School_Managment_System.Models.Student;
 import com.School_Managment_System.School_Managment_System.Repositories.School_Class_Repository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,5 +29,9 @@ public class School_Class_Service {
 
     public void deleteClassRoom(Long id) {
         school_class_repository.deleteById(id);
+    }
+
+    public School_Class updateClassRoom(Long id, School_Class updateData){
+
     }
 }
