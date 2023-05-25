@@ -24,9 +24,9 @@ public class ClassRoomRequest {
         classRoom.setName(this.getName());
         classRoom.setSize(this.getSize());
         classRoom.setClassCode(this.getClassCode());
-        classRoom.setIsActive(true);
-        classRoom.setCreatedDate(nowDate);
-        classRoom.setUpdatedDate(nowDate);
+//        classRoom.setIsActive(true);
+//        classRoom.setCreatedDate(nowDate);
+//        classRoom.setUpdatedDate(nowDate);
         return classRoom;
     }
 }
