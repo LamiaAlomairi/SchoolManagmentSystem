@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class Teacher_Service {
+public class TeacherService {
     @Autowired
     TeacherRepository teacherRepository;
     public List<Teacher> getAllTeachers() {

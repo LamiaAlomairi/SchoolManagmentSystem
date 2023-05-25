@@ -1,47 +1,45 @@
 package com.School_Managment_System.School_Managment_System.Services;
 
 import com.School_Managment_System.School_Managment_System.Models.Student;
-import com.School_Managment_System.School_Managment_System.Repositories.Student_Repository;
+import com.School_Managment_System.School_Managment_System.Repositories.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class Student_Service {
+public class StudentService {
     @Autowired
-    Student_Repository student_repository;
+    StudentRepository studentRepository;
     public List<Student> getAllStudents() {
 
-        return student_repository.findAll();
+        return studentRepository.findAll();
     }
 
     public Student getStudentById(Long id) {
 
-        return student_repository.findById(id).get();
+        return studentRepository.findById(id).get();
     }
 
     public void addStudent(Student student){
 
-        student_repository.save(student);
+        studentRepository.save(student);
     }
 
     public void deleteStudent(Long id) {
-        student_repository.deleteById(id);
+        studentRepository.deleteById(id);
     }
 
     public Student updateStudent(Long id, Student updateData){
-        Student student = student_repository.findById(id).orElse(null);
+        Student student = studentRepository.findById(id).orElse(null);
         if (student != null) {
             student.setName(updateData.getName());
             student.setEmail(updateData.getEmail());
-            student.setNationality(updateData.getNationality());
-            student.setCreatedDate(updateData.getCreatedDate());
-            student.setIsActive(updateData.getIsActive());
-            student.setUpdateDate(updateData.getUpdateDate());
+            student.setAge(updateData.getAge());
+            student.setGender(updateData.getGender());
             student.setStudent_courses(updateData.getStudent_courses());
 
-            return student_repository.save(student);
+            return studentRepository.save(student);
         }
         return null;
     }
