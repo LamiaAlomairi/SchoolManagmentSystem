@@ -1,7 +1,7 @@
 package com.School_Managment_System.School_Managment_System.Controllers;
 
 import com.School_Managment_System.School_Managment_System.Models.Teacher;
-import com.School_Managment_System.School_Managment_System.Services.Teacher_Service;
+import com.School_Managment_System.School_Managment_System.Services.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,35 +10,35 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "teacher")
-public class Teacher_Controller {
+public class TeacherController {
     @Autowired
-    Teacher_Service teacher_service;
+    TeacherService teacherService;
     @GetMapping(value = "getAll")
     public List<Teacher> getAllTeachers() {
 
-        return teacher_service.getAllTeachers();
+        return teacherService.getAllTeachers();
     }
     @GetMapping(value = "getById")
     public Teacher getTeacherById(@RequestParam Long id) {
 
-        return teacher_service.getTeacherById(id);
+        return teacherService.getTeacherById(id);
     }
 
     @PostMapping(value = "add")
     public String addTeacher(@RequestBody Teacher teacher){
-        teacher_service.addTeacher(teacher);
+        teacherService.addTeacher(teacher);
         return "Teacher added";
     }
 
     @DeleteMapping("{id}")
     public ResponseEntity<String> deleteTeacher(@PathVariable long id){
-        teacher_service.deleteTeacher(id);
+        teacherService.deleteTeacher(id);
         return ResponseEntity.ok("Entity deleted successfully.");
     }
 
     @PutMapping("{id}")
     public ResponseEntity<Teacher> updateTeacher(@PathVariable Long id, @RequestBody Teacher updateData){
-        Teacher teacher = teacher_service.updateTeacher(id, updateData);
+        Teacher teacher = teacherService.updateTeacher(id, updateData);
         if (teacher != null) {
             return ResponseEntity.ok(teacher);
         } else {
