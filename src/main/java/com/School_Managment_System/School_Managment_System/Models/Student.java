@@ -16,13 +16,11 @@ import java.util.*;
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long student_id;
+    Long id;
     String name;
+    Integer age;
     String email;
-    String nationality;
-    Date createdDate;
-    Boolean isActive;
-    Date updateDate;
+    String gender;
 
 
     @OneToMany(mappedBy = "student")
