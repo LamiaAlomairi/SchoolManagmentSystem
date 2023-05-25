@@ -5,6 +5,8 @@ import com.School_Managment_System.School_Managment_System.Services.Student_Cour
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(value = "student_course")
 public class Student_Course_Controller {
@@ -15,5 +17,11 @@ public class Student_Course_Controller {
     public String addStudentCourse(@RequestBody Student_Course studentCourse){
         studentCourseService.addStudentCourse(studentCourse);
         return "Information added";
+    }
+
+    @GetMapping(value = "getAll")
+    public List<Student_Course> getAllStudent_Courses() {
+
+        return studentCourseService.getAllStudent_Courses();
     }
 }
