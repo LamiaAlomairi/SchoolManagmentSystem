@@ -1,7 +1,7 @@
 package com.School_Managment_System.School_Managment_System.Controllers;
 
 import com.School_Managment_System.School_Managment_System.Models.Student;
-import com.School_Managment_System.School_Managment_System.Services.Student_Service;
+import com.School_Managment_System.School_Managment_System.Services.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,35 +10,35 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "student")
-public class Student_Controller {
+public class StudentController {
     @Autowired
-    Student_Service student_service;
+    StudentService studentService;
     @GetMapping(value = "getAll")
     public List<Student> getAllStudents() {
 
-        return student_service.getAllStudents();
+        return studentService.getAllStudents();
     }
     @GetMapping(value = "getById")
     public Student getStudentById(@RequestParam Long id) {
 
-        return student_service.getStudentById(id);
+        return studentService.getStudentById(id);
     }
 
     @PostMapping(value = "add")
     public String addStudent(@RequestBody Student student){
-        student_service.addStudent(student);
+        studentService.addStudent(student);
         return "Student added";
     }
 
     @DeleteMapping("{id}")
     public ResponseEntity<String> deleteStudent(@PathVariable long id){
-        student_service.deleteStudent(id);
+        studentService.deleteStudent(id);
         return ResponseEntity.ok("Student deleted successfully.");
     }
 
     @PutMapping("{id}")
     public ResponseEntity<Student> updateStudent(@PathVariable Long id, @RequestBody Student updateData){
-        Student student = student_service.updateStudent(id, updateData);
+        Student student = studentService.updateStudent(id, updateData);
         if (student != null) {
             return ResponseEntity.ok(student);
         } else {
