@@ -1,37 +1,37 @@
 package com.School_Managment_System.School_Managment_System.Services;
 
-import com.School_Managment_System.School_Managment_System.Models.Class_room;
-import com.School_Managment_System.School_Managment_System.Repositories.Class_room_Repository;
+import com.School_Managment_System.School_Managment_System.Models.ClassRoom;
+import com.School_Managment_System.School_Managment_System.Repositories.ClassRoomRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class Class_room_Service {
+public class ClassRoomService {
     @Autowired
-    Class_room_Repository classRoomRepository;
-    public List<Class_room> getAllClass_rooms() {
+    ClassRoomRepository classRoomRepository;
+    public List<ClassRoom> getAllClassRooms() {
 
         return classRoomRepository.findAll();
     }
 
-    public Class_room getClass_roomById(Long id) {
+    public ClassRoom getClassRoomById(Long id) {
 
         return classRoomRepository.findById(id).get();
     }
 
-    public void addClass_room(Class_room class_room){
+    public void addClassRoom(ClassRoom classRoom){
 
-        classRoomRepository.save(class_room);
+        classRoomRepository.save(classRoom);
     }
 
     public void deleteClassRoom(Long id) {
         classRoomRepository.deleteById(id);
     }
 
-    public Class_room updateClassRoom(Long id, Class_room updateData){
-        Class_room classRoom = classRoomRepository.findById(id).orElse(null);
+    public ClassRoom updateClassRoom(Long id, ClassRoom updateData){
+        ClassRoom classRoom = classRoomRepository.findById(id).orElse(null);
         if (classRoom != null) {
             classRoom.setName(updateData.getName());
             classRoom.setClass_code(updateData.getClass_code());
