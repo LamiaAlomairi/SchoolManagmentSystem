@@ -1,7 +1,7 @@
 package com.School_Managment_System.School_Managment_System.Services;
 
 import com.School_Managment_System.School_Managment_System.Models.Teacher;
-import com.School_Managment_System.School_Managment_System.Repositories.Teacher_Repository;
+import com.School_Managment_System.School_Managment_System.Repositories.TeacherRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,34 +10,37 @@ import java.util.List;
 @Service
 public class Teacher_Service {
     @Autowired
-    Teacher_Repository teacher_repository;
+    TeacherRepository teacherRepository;
     public List<Teacher> getAllTeachers() {
 
-        return teacher_repository.findAll();
+        return teacherRepository.findAll();
     }
 
     public Teacher getTeacherById(Long id) {
 
-        return teacher_repository.findById(id).get();
+        return teacherRepository.findById(id).get();
     }
 
     public void addTeacher(Teacher teacher){
-        teacher_repository.save(teacher);
+
+        teacherRepository.save(teacher);
     }
 
     public void deleteTeacher(Long id) {
-        teacher_repository.deleteById(id);
+
+        teacherRepository.deleteById(id);
     }
 
     public Teacher updateTeacher(Long id, Teacher updateData){
-        Teacher teacher = teacher_repository.findById(id).orElse(null);
+        Teacher teacher = teacherRepository.findById(id).orElse(null);
 
         if (teacher != null) {
             teacher.setName(updateData.getName());
-            teacher.setSeplaization(updateData.getSeplaization());
-            teacher.setPhone_number(updateData.getPhone_number());
+            teacher.setPhoneNumber(updateData.getPhoneNumber());
+            teacher.setAge(updateData.getAge());
+            teacher.setSpecialization(updateData.getSpecialization());
 
-            return teacher_repository.save(teacher);
+            return teacherRepository.save(teacher);
         }
         return null;
     }
