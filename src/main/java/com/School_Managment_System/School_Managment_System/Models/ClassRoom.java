@@ -12,8 +12,8 @@ import java.util.List;
 @Setter
 @Data
 @Entity
-@Table(name = "class_room")
-public class Class_room {
+@Table(name = "classRoom")
+public class ClassRoom {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
@@ -21,7 +21,7 @@ public class Class_room {
     Float size;
     String class_code;
 
-    @OneToMany(mappedBy = "class_room")
+    @OneToMany(mappedBy = "classRoom")
     @JsonIgnore
     private List<Course> courses;
 }

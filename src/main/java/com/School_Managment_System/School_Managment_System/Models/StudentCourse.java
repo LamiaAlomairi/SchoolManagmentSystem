@@ -10,8 +10,8 @@ import javax.persistence.*;
 @Setter
 @Data
 @Entity
-@Table(name = "student_course")
-public class Student_Course {
+@Table(name = "studentCourse")
+public class StudentCourse {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
