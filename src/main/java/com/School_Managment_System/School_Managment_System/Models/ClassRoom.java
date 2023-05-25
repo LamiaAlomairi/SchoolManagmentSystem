@@ -19,7 +19,7 @@ public class ClassRoom {
     Long id;
     String name;
     Float size;
-    String class_code;
+    String classCode;
 
     @OneToMany(mappedBy = "classRoom")
     @JsonIgnore

@@ -16,14 +16,14 @@ import java.util.List;
 public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long course_id;
-    String course_name;
+    Long id;
+    String name;
     String description;
-    String course_code;
+    String courseCode;
 
     @OneToMany(mappedBy = "course")
     @JsonIgnore
-    private List<Student_Course> student_courses;
+    private List<StudentCourse> studentCourses;
 
     @OneToMany(mappedBy = "course")
     @JsonIgnore
@@ -31,5 +31,5 @@ public class Course {
 
     @ManyToOne
     @JoinColumn(name = "class_id", referencedColumnName = "id")
-    Class_room class_room;
+    ClassRoom classRoom;
 }

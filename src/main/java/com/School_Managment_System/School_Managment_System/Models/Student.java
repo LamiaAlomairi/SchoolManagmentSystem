@@ -25,5 +25,5 @@ public class Student {
 
     @OneToMany(mappedBy = "student")
     @JsonIgnore
-    private List<Student_Course> student_courses;
+    private List<StudentCourse> studentCourses;
 }
