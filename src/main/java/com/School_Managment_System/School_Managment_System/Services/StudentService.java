@@ -37,7 +37,7 @@ public class StudentService {
             student.setEmail(updateData.getEmail());
             student.setAge(updateData.getAge());
             student.setGender(updateData.getGender());
-            student.setStudent_courses(updateData.getStudent_courses());
+            student.setStudentCourses(updateData.getStudentCourses());
 
             return studentRepository.save(student);
         }

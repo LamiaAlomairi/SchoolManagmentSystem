@@ -34,7 +34,7 @@ public class ClassRoomService {
         ClassRoom classRoom = classRoomRepository.findById(id).orElse(null);
         if (classRoom != null) {
             classRoom.setName(updateData.getName());
-            classRoom.setClass_code(updateData.getClass_code());
+            classRoom.setClassCode(updateData.getClassCode());
             classRoom.setSize(updateData.getSize());
             classRoom.setCourses(updateData.getCourses());
 

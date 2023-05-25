@@ -33,11 +33,12 @@ public class CourseService {
     public Course updateCourse(Long id, Course updateData){
         Course course = courseRepository.findById(id).orElse(null);
         if (course != null) {
-            course.setCourse_name(updateData.getCourse_name());
-            course.setCourse_code(updateData.getCourse_code());
+            course.setName(updateData.getName());
+            course.setCourseCode(updateData.getCourseCode());
             course.setDescription(updateData.getDescription());
-            course.setStudent_courses(updateData.getStudent_courses());
-            course.setClass_room(updateData.getClass_room());
+            course.setStudentCourses(updateData.getStudentCourses());
+            course.setClassRoom(updateData.getClassRoom());
+            course.setTeachers(updateData.getTeachers());
 
             return courseRepository.save(course);
         }
