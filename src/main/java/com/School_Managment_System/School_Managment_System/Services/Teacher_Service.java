@@ -34,7 +34,7 @@ public class Teacher_Service {
 
         if (teacher != null) {
             teacher.setName(updateData.getName());
-            teacher.setMajor(updateData.getMajor());
+            teacher.setSeplaization(updateData.getSeplaization());
             teacher.setPhone_number(updateData.getPhone_number());
 
             return teacher_repository.save(teacher);

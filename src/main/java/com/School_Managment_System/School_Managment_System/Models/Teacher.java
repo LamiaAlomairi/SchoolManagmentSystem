@@ -1,10 +1,8 @@
 package com.School_Managment_System.School_Managment_System.Models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
-import java.util.*;
 import javax.persistence.*;
 
 @Getter
@@ -15,12 +13,13 @@ import javax.persistence.*;
 public class Teacher {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long teacher_id;
+    Long id;
     String name;
-    String phone_number;
-    String major;
+    String phoneNumber;
+    String specialization;
+    Integer age;
 
     @ManyToOne
-    @JoinColumn(name = "course_id", referencedColumnName = "course_id")
+    @JoinColumn(name = "course_id", referencedColumnName = "id")
     Course course;
 }
