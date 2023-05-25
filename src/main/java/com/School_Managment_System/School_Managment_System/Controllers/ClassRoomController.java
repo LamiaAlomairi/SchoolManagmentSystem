@@ -1,7 +1,7 @@
 package com.School_Managment_System.School_Managment_System.Controllers;
 
-import com.School_Managment_System.School_Managment_System.Models.Class_room;
-import com.School_Managment_System.School_Managment_System.Services.Class_room_Service;
+import com.School_Managment_System.School_Managment_System.Models.ClassRoom;
+import com.School_Managment_System.School_Managment_System.Services.ClassRoomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,23 +10,23 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "class_room")
-public class Class_room_Controller {
+public class ClassRoomController {
     @Autowired
-    Class_room_Service classRoomService;
+    ClassRoomService classRoomService;
     @GetMapping(value = "getAll")
-    public List<Class_room> getAllClass_rooms() {
+    public List<ClassRoom> getAllClassRooms() {
 
-        return classRoomService.getAllClass_rooms();
+        return classRoomService.getAllClassRooms();
     }
     @GetMapping(value = "getById")
-    public Class_room getClass_roomById(@RequestParam Long id) {
+    public ClassRoom getClassRoomById(@RequestParam Long id) {
 
-        return classRoomService.getClass_roomById(id);
+        return classRoomService.getClassRoomById(id);
     }
 
     @PostMapping(value = "add")
-    public String addClass_room(@RequestBody Class_room class_room){
-        classRoomService.addClass_room(class_room);
+    public String addClass_room(@RequestBody ClassRoom class_room){
+        classRoomService.addClassRoom(class_room);
         return "Class added";
     }
 
@@ -37,8 +37,8 @@ public class Class_room_Controller {
     }
 
     @PutMapping("{id}")
-    public ResponseEntity<Class_room> updateClassRoom(@PathVariable Long id, @RequestBody Class_room updateData){
-        Class_room classRoom = classRoomService.updateClassRoom(id, updateData);
+    public ResponseEntity<ClassRoom> updateClassRoom(@PathVariable Long id, @RequestBody ClassRoom updateData){
+        ClassRoom classRoom = classRoomService.updateClassRoom(id, updateData);
         if (classRoom != null) {
             return ResponseEntity.ok(classRoom);
         } else {
