@@ -1,6 +1,7 @@
 package com.School_Managment_System.School_Managment_System.Controllers;
 
 import com.School_Managment_System.School_Managment_System.Models.ClassRoom;
+import com.School_Managment_System.School_Managment_System.Request.ClassRoomRequest;
 import com.School_Managment_System.School_Managment_System.Services.ClassRoomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -25,8 +26,8 @@ public class ClassRoomController {
     }
 
     @PostMapping(value = "add")
-    public String addClass_room(@RequestBody ClassRoom class_room){
-        classRoomService.addClassRoom(class_room);
+    public String addClassRoom(@RequestBody ClassRoomRequest classRoomRequest){
+        classRoomService.addClassRoom(classRoomRequest);
         return "Class added";
     }
 
