@@ -11,5 +11,13 @@ import javax.persistence.*;
 @Data
 @Entity
 public class ClassRoomRequest {
+    private String name;
+    private Float size;
+    private String classCode;
 
+    public ClassRoomRequest(String name, Float size, String classCode){
+        this.name = name;
+        this.size = size;
+        this.classCode = classCode;
+    }
 }
