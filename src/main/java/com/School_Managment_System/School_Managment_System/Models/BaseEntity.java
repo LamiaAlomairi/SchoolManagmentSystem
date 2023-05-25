@@ -1,18 +1,23 @@
 package com.School_Managment_System.School_Managment_System.Models;
 
-import lombok.Data;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.data.annotation.CreatedDate;
 
-import javax.persistence.*;
-import java.util.*;
+import javax.persistence.MappedSuperclass;
+import java.util.Date;
 
-@Getter
 @Setter
-@Entity
-@Data
+@Getter
+@MappedSuperclass
 public class BaseEntity {
-    private Boolean isActive;
-    private Date createdDate;
-    private Date updateDate;
+    Boolean isActive;
+    @CreatedDate
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Muscat")
+    Date createdDate;
+    @UpdateTimestamp
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Muscat")
+    Date updatedDate;
 }

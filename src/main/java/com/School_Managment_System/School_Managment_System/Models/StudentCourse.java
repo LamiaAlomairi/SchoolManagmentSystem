@@ -11,7 +11,7 @@ import javax.persistence.*;
 @Data
 @Entity
 @Table(name = "studentCourse")
-public class StudentCourse extends BaseEntity {
+public class StudentCourse {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;

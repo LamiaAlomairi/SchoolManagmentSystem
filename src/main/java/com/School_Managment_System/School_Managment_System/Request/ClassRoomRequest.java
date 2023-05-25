@@ -26,7 +26,7 @@ public class ClassRoomRequest {
         classRoom.setClassCode(this.getClassCode());
         classRoom.setIsActive(true);
         classRoom.setCreatedDate(nowDate);
-        classRoom.setUpdateDate(nowDate);
+        classRoom.setUpdatedDate(nowDate);
         return classRoom;
     }
 }

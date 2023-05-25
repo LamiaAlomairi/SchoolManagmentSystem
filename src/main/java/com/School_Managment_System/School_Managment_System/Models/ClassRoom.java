@@ -13,7 +13,7 @@ import java.util.List;
 @Data
 @Entity
 @Table(name = "classRoom")
-public class ClassRoom extends BaseEntity {
+public class ClassRoom {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
