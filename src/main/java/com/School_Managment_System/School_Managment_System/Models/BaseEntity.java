@@ -9,10 +9,10 @@ import java.util.*;
 
 @Getter
 @Setter
-@Data
 @Entity
+@Data
 public class BaseEntity {
-    Date createdDate;
-    Boolean isActive;
-    Date updateDate;
+    private Boolean isActive;
+    private Date createdDate;
+    private Date updateDate;
 }
