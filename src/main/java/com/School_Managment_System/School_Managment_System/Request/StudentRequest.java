@@ -10,6 +10,6 @@ import javax.persistence.*;
 @Setter
 @Data
 @Entity
-public class CourseRequest {
+public class StudentRequest {
 
 }
