@@ -27,6 +27,7 @@ public class ClassRoomRequest {
 
         ClassRoom classRoom = new ClassRoom();
         Date nowDate = new Date();
+
         classRoom.setId(request.getId());
         classRoom.setName(request.getName());
         classRoom.setSize(request.getSize());
