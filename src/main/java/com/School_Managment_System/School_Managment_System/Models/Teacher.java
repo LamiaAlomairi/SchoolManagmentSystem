@@ -19,7 +19,7 @@ public class Teacher extends BaseEntity {
     String specialization;
     Integer age;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "course_id", referencedColumnName = "id")
     Course course;
 }

@@ -25,9 +25,8 @@ public class Course extends BaseEntity {
     @JsonIgnore
     private List<StudentCourse> studentCourses;
 
-    @OneToMany(mappedBy = "course")
-    @JsonIgnore
-    private List<Teacher> teachers;
+    @OneToOne
+    private Teacher teacher;
 
     @ManyToOne
     @JoinColumn(name = "class_id", referencedColumnName = "id")
