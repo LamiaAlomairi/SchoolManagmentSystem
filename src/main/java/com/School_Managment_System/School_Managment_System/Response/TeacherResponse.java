@@ -33,8 +33,8 @@ public class TeacherResponse {
     public static List<TeacherResponse> convertRequestListToResponseList(List<Teacher> teacherRequest) {
         List<TeacherResponse> teacherResponseList = new ArrayList<>();
         if (!teacherRequest.isEmpty()) {
-            for (Teacher Request : teacherRequest) {
-                teacherResponseList.add(convertRequestToResponse(Request));
+            for (Teacher teachersRequest : teacherRequest) {
+                teacherResponseList.add(convertRequestToResponse(teachersRequest));
             }
         }
         return teacherResponseList;
