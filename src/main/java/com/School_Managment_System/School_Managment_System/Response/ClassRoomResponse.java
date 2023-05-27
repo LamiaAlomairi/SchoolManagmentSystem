@@ -33,5 +33,4 @@ public class ClassRoomResponse {
         }
         return classResponseList;
     }
-
 }
