@@ -1,6 +1,5 @@
 package com.School_Managment_System.School_Managment_System.Response;
 
-import com.School_Managment_System.School_Managment_System.Models.ClassRoom;
 import com.School_Managment_System.School_Managment_System.Models.Course;
 import lombok.Builder;
 import lombok.Data;

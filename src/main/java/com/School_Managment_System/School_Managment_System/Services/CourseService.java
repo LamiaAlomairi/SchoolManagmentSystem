@@ -2,6 +2,7 @@ package com.School_Managment_System.School_Managment_System.Services;
 
 import com.School_Managment_System.School_Managment_System.Models.Course;
 import com.School_Managment_System.School_Managment_System.Repositories.CourseRepository;
+import com.School_Managment_System.School_Managment_System.Request.CourseRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,8 +22,8 @@ public class CourseService {
         return courseRepository.findById(id).get();
     }
 
-    public void addCourse(Course course){
-
+    public void addCourse(CourseRequest courseRequest){
+        Course course = CourseRequest.convert(courseRequest);
         courseRepository.save(course);
     }
 
@@ -38,7 +39,6 @@ public class CourseService {
             course.setDescription(updateData.getDescription());
             course.setStudentCourses(updateData.getStudentCourses());
             course.setClassRoom(updateData.getClassRoom());
-            course.setTeachers(updateData.getTeachers());
 
             return courseRepository.save(course);
         }
