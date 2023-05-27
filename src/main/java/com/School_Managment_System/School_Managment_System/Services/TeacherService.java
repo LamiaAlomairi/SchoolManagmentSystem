@@ -2,6 +2,7 @@ package com.School_Managment_System.School_Managment_System.Services;
 
 import com.School_Managment_System.School_Managment_System.Models.Teacher;
 import com.School_Managment_System.School_Managment_System.Repositories.TeacherRepository;
+import com.School_Managment_System.School_Managment_System.Request.TeacherRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,8 +22,8 @@ public class TeacherService {
         return teacherRepository.findById(id).get();
     }
 
-    public void addTeacher(Teacher teacher){
-
+    public void addTeacher(TeacherRequest teacherRequest){
+        Teacher teacher = TeacherRequest.convert(teacherRequest);
         teacherRepository.save(teacher);
     }
 
