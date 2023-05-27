@@ -1,6 +1,7 @@
 package com.School_Managment_System.School_Managment_System.Controllers;
 
 import com.School_Managment_System.School_Managment_System.Models.Course;
+import com.School_Managment_System.School_Managment_System.Request.CourseRequest;
 import com.School_Managment_System.School_Managment_System.Services.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -25,9 +26,8 @@ public class CourseController {
     }
 
     @PostMapping(value = "add")
-    public String addCourse(@RequestBody Course course){
-        courseService.addCourse(course);
-        return "Course added";
+    public void addCourse(@RequestBody CourseRequest courseRequest){
+        courseService.addCourse(courseRequest);
     }
 
     @DeleteMapping("{id}")
