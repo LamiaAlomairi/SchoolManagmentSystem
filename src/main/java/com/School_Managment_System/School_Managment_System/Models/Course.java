@@ -25,7 +25,7 @@ public class Course extends BaseEntity {
     @JsonIgnore
     private List<StudentCourse> studentCourses;
 
-    @OneToOne
+    @OneToOne(mappedBy = "course")
     private Teacher teacher;
 
     @ManyToOne
