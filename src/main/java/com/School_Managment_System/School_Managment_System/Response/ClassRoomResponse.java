@@ -3,7 +3,6 @@ package com.School_Managment_System.School_Managment_System.Response;
 import com.School_Managment_System.School_Managment_System.Models.ClassRoom;
 import lombok.*;
 
-import javax.persistence.Entity;
 import java.util.ArrayList;
 import java.util.List;
 

@@ -5,7 +5,6 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import java.util.*;
-import javax.persistence.*;
 
 @Getter
 @Setter
@@ -14,19 +13,6 @@ public class ClassRoomRequest {
     private String name;
     private Float size;
     private String classCode;
-
-//    public ClassRoom convertToClassRoom () {
-//        Date nowDate = new Date();
-//        ClassRoom classRoom = new ClassRoom();
-//
-//        classRoom.setName(this.getName());
-//        classRoom.setSize(this.getSize());
-//        classRoom.setClassCode(this.getClassCode());
-//        classRoom.setIsActive(true);
-//        classRoom.setCreatedDate(nowDate);
-//        classRoom.setUpdatedDate(nowDate);
-//        return classRoom;
-//    }
 
     public static ClassRoom convert(ClassRoomRequest request) {
         Date nowDate = new Date();
@@ -49,7 +35,5 @@ public class ClassRoomRequest {
             }
         }
         return classRooms;
-
-
     }
 }

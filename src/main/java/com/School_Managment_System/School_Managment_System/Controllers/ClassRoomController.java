@@ -28,18 +28,6 @@ public class ClassRoomController {
     }
 
     @PostMapping(value = "add")
-//    public ClassRoomResponse addClassRoom(@RequestBody ClassRoomRequest classRoomRequest) {
-//        ClassRoom addClass = classRoomService.addClassRoom(classRoomRequest.convertToClassRoom());
-//
-//        ClassRoomResponse response = new ClassRoomResponse(
-//                addClass.getId(),
-//                addClass.getName(),
-//                addClass.getSize(),
-//                addClass.getClassCode()
-//        );
-//        return response;
-//    }
-
     public void addClassRoom(@RequestBody ClassRoomRequest classRoomRequest) {
         classRoomService.addClassRoom(classRoomRequest);
     }
