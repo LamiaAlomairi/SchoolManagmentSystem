@@ -1,6 +1,7 @@
 package com.School_Managment_System.School_Managment_System.Controllers;
 
 import com.School_Managment_System.School_Managment_System.Models.Teacher;
+import com.School_Managment_System.School_Managment_System.Request.TeacherRequest;
 import com.School_Managment_System.School_Managment_System.Services.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -25,9 +26,8 @@ public class TeacherController {
     }
 
     @PostMapping(value = "add")
-    public String addTeacher(@RequestBody Teacher teacher){
-        teacherService.addTeacher(teacher);
-        return "Teacher added";
+    public void addTeacher(@RequestBody TeacherRequest teacherRequest){
+        teacherService.addTeacher(teacherRequest);
     }
 
     @DeleteMapping("{id}")
