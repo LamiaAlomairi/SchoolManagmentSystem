@@ -1,6 +1,7 @@
 package com.School_Managment_System.School_Managment_System.Controllers;
 
 import com.School_Managment_System.School_Managment_System.Models.Student;
+import com.School_Managment_System.School_Managment_System.Request.StudentRequest;
 import com.School_Managment_System.School_Managment_System.Services.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -25,9 +26,8 @@ public class StudentController {
     }
 
     @PostMapping(value = "add")
-    public String addStudent(@RequestBody Student student){
-        studentService.addStudent(student);
-        return "Student added";
+    public void addStudent(@RequestBody StudentRequest studentRequest){
+        studentService.addStudent(studentRequest);
     }
 
     @DeleteMapping("{id}")
