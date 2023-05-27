@@ -2,10 +2,12 @@ package com.School_Managment_System.School_Managment_System.Services;
 
 import com.School_Managment_System.School_Managment_System.Models.ClassRoom;
 import com.School_Managment_System.School_Managment_System.Repositories.ClassRoomRepository;
+import com.School_Managment_System.School_Managment_System.Request.ClassRoomRequest;
+import com.School_Managment_System.School_Managment_System.Response.ClassRoomResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.*;
 
 @Service
 public class ClassRoomService {
@@ -21,8 +23,13 @@ public class ClassRoomService {
         return classRoomRepository.findById(id).get();
     }
 
-    public ClassRoom addClassRoom(ClassRoom classRoom) {
-        return classRoomRepository.save(classRoom);
+//    public ClassRoom addClassRoom(ClassRoom classRoom) {
+//        return classRoomRepository.save(classRoom);
+//    }
+
+    public void addClassRoom(ClassRoomRequest classRoomRequest) {
+        ClassRoom classRoom = ClassRoomRequest.convert(classRoomRequest);
+        classRoomRepository.save(classRoom);
     }
 
     public void deleteClassRoom(Long id) {

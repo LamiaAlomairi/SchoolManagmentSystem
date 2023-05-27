@@ -5,6 +5,7 @@ import com.School_Managment_System.School_Managment_System.Request.ClassRoomRequ
 import com.School_Managment_System.School_Managment_System.Response.ClassRoomResponse;
 import com.School_Managment_System.School_Managment_System.Services.ClassRoomService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,16 +28,20 @@ public class ClassRoomController {
     }
 
     @PostMapping(value = "add")
-    public ClassRoomResponse addClassRoom(@RequestBody ClassRoomRequest classRoomRequest) {
-        ClassRoom addClass = classRoomService.addClassRoom(classRoomRequest.convertToClassRoom());
+//    public ClassRoomResponse addClassRoom(@RequestBody ClassRoomRequest classRoomRequest) {
+//        ClassRoom addClass = classRoomService.addClassRoom(classRoomRequest.convertToClassRoom());
+//
+//        ClassRoomResponse response = new ClassRoomResponse(
+//                addClass.getId(),
+//                addClass.getName(),
+//                addClass.getSize(),
+//                addClass.getClassCode()
+//        );
+//        return response;
+//    }
 
-        ClassRoomResponse response = new ClassRoomResponse(
-                addClass.getId(),
-                addClass.getName(),
-                addClass.getSize(),
-                addClass.getClassCode()
-        );
-        return response;
+    public void addClassRoom(@RequestBody ClassRoomRequest classRoomRequest) {
+        classRoomService.addClassRoom(classRoomRequest);
     }
 
     @DeleteMapping("{id}")

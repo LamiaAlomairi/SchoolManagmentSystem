@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -13,13 +14,13 @@ import java.util.List;
 @Data
 @Entity
 @Table(name = "classRoom")
-public class ClassRoom {
+public class ClassRoom extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
-    String name;
-    Float size;
-    String classCode;
+    private Long id;
+    private String name;
+    private Float size;
+    private String classCode;
 
     @OneToMany(mappedBy = "classRoom")
     @JsonIgnore
