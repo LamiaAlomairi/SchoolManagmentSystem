@@ -1,5 +1,6 @@
 package com.School_Managment_System.School_Managment_System.Controllers;
 
+import com.School_Managment_System.School_Managment_System.Models.Student;
 import com.School_Managment_System.School_Managment_System.Models.StudentCourse;
 import com.School_Managment_System.School_Managment_System.Models.Teacher;
 import com.School_Managment_System.School_Managment_System.Request.StudentCourseRequest;
@@ -41,5 +42,16 @@ public class StudentCourseController {
     public ResponseEntity<String> deleteStudentCourse(@PathVariable long id){
         studentCourseService.deleteStudentCourse(id);
         return ResponseEntity.ok("Student course deleted successfully.");
+    }
+
+//**** ***   Update Student Course Data By id   *** *****
+    @PutMapping("{id}")
+    public ResponseEntity<StudentCourse> updateStudentCourse(@PathVariable Long id, @RequestBody StudentCourse updateData){
+        StudentCourse studentCourse = studentCourseService.updateStudentCourse(id, updateData);
+        if (studentCourse != null) {
+            return ResponseEntity.ok(studentCourse);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 }
