@@ -1,7 +1,5 @@
 package com.School_Managment_System.School_Managment_System.Services;
 
-import com.School_Managment_System.School_Managment_System.Models.Course;
-import com.School_Managment_System.School_Managment_System.Models.Student;
 import com.School_Managment_System.School_Managment_System.Models.StudentCourse;
 import com.School_Managment_System.School_Managment_System.Repositories.StudentCourseRepository;
 import com.School_Managment_System.School_Managment_System.Request.StudentCourseRequest;
