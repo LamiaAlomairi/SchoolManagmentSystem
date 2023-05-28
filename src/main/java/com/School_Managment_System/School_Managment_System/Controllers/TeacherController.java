@@ -6,7 +6,6 @@ import com.School_Managment_System.School_Managment_System.Services.TeacherServi
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
@@ -14,28 +13,36 @@ import java.util.List;
 public class TeacherController {
     @Autowired
     TeacherService teacherService;
+
+//**** ***   Add New Teacher Data   *** *****
+    @PostMapping(value = "add")
+    public void addTeacher(@RequestBody TeacherRequest teacherRequest){
+
+        teacherService.addTeacher(teacherRequest);
+    }
+
+//**** ***   Get All Teacher Data   *** *****
     @GetMapping(value = "getAll")
     public List<Teacher> getAllTeachers() {
 
         return teacherService.getAllTeachers();
     }
+
+//**** ***   Get Teacher Data By id   *** *****
     @GetMapping(value = "getById")
     public Teacher getTeacherById(@RequestParam Long id) {
 
         return teacherService.getTeacherById(id);
     }
 
-    @PostMapping(value = "add")
-    public void addTeacher(@RequestBody TeacherRequest teacherRequest){
-        teacherService.addTeacher(teacherRequest);
-    }
-
+//**** ***   Delete Teacher Data By id   *** *****
     @DeleteMapping("{id}")
     public ResponseEntity<String> deleteTeacher(@PathVariable long id){
         teacherService.deleteTeacher(id);
         return ResponseEntity.ok("Entity deleted successfully.");
     }
 
+//**** ***   Update Teacher Data By id   *** *****
     @PutMapping("{id}")
     public ResponseEntity<Teacher> updateTeacher(@PathVariable Long id, @RequestBody Teacher updateData){
         Teacher teacher = teacherService.updateTeacher(id, updateData);

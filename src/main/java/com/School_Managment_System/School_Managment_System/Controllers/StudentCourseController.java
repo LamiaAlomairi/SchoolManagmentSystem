@@ -14,11 +14,13 @@ public class StudentCourseController {
     @Autowired
     StudentCourseService studentCourseService;
 
+//**** ***   Add New Student Course Data   *** *****
     @PostMapping(value = "add")
     public void addStudentCourse(@RequestBody StudentCourseRequest studentCourseRequest){
         studentCourseService.addStudentCourse(studentCourseRequest);
     }
 
+//**** ***   Get All Student Course Data   *** *****
     @GetMapping(value = "getAll")
     public List<StudentCourse> getAllStudentCourses() {
 

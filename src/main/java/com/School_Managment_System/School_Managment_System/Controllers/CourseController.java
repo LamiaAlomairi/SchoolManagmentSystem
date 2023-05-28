@@ -14,28 +14,35 @@ import java.util.List;
 public class CourseController {
     @Autowired
     CourseService courseService;
+
+//**** ***   Add New Course Data   *** *****
+    @PostMapping(value = "add")
+    public void addCourse(@RequestBody CourseRequest courseRequest){
+        courseService.addCourse(courseRequest);
+    }
+
+//**** ***   Get All Course Data   *** *****
     @GetMapping(value = "getAll")
     public List<Course> getAllCourses() {
 
         return courseService.getAllCourses();
     }
+
+//**** ***   Get Course Data By id   *** *****
     @GetMapping(value = "getById")
     public Course getCourseById(@RequestParam Long id) {
 
         return courseService.getCourseById(id);
     }
 
-    @PostMapping(value = "add")
-    public void addCourse(@RequestBody CourseRequest courseRequest){
-        courseService.addCourse(courseRequest);
-    }
-
+//**** ***   Delete Course Data By id   *** *****
     @DeleteMapping("{id}")
     public ResponseEntity<String> deleteCourse(@PathVariable long id){
         courseService.deleteCourse(id);
         return ResponseEntity.ok("Course deleted successfully.");
     }
 
+//**** ***   Update Course Data By id   *** *****
     @PutMapping("{id}")
     public ResponseEntity<Course> updateCourse(@PathVariable Long id, @RequestBody Course updateData){
         Course course = courseService.updateCourse(id, updateData);
