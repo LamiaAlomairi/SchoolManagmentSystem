@@ -1,6 +1,7 @@
 package com.School_Managment_System.School_Managment_System.Services;
 
 import com.School_Managment_System.School_Managment_System.Models.Course;
+import com.School_Managment_System.School_Managment_System.Models.Student;
 import com.School_Managment_System.School_Managment_System.Models.StudentCourse;
 import com.School_Managment_System.School_Managment_System.Repositories.StudentCourseRepository;
 import com.School_Managment_System.School_Managment_System.Request.StudentCourseRequest;
@@ -32,5 +33,19 @@ public class StudentCourseService {
     public void deleteStudentCourse(Long id) {
 
         studentCourseRepository.deleteById(id);
+    }
+
+    public StudentCourse updateStudentCourse(Long id, StudentCourse updateData){
+        StudentCourse studentCourse = studentCourseRepository.findById(id).orElse(null);
+        if (studentCourse != null) {
+            studentCourse.setGrade(updateData.getGrade());
+            studentCourse.setStudent(updateData.getStudent());
+            studentCourse.setCourse(updateData.getCourse());
+            studentCourse.setIsActive(updateData.getIsActive());
+            studentCourse.setUpdatedDate(updateData.getUpdatedDate());
+
+            return studentCourseRepository.save(studentCourse);
+        }
+        return null;
     }
 }
