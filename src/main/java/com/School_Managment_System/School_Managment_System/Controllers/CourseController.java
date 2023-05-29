@@ -18,6 +18,7 @@ public class CourseController {
 //**** ***   Add New Course Data   *** *****
     @PostMapping(value = "add")
     public void addCourse(@RequestBody CourseRequest courseRequest){
+
         courseService.addCourse(courseRequest);
     }
 

@@ -5,7 +5,6 @@ import com.School_Managment_System.School_Managment_System.Repositories.StudentC
 import com.School_Managment_System.School_Managment_System.Request.StudentCourseRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service
@@ -13,26 +12,31 @@ public class StudentCourseService {
     @Autowired
     StudentCourseRepository studentCourseRepository;
 
+//**** ***   Add New Student Course Data   *** *****
     public void addStudentCourse(StudentCourseRequest studentCourseRequest){
         StudentCourse studentCourse = StudentCourseRequest.convert(studentCourseRequest);
         studentCourseRepository.save(studentCourse);
     }
 
+//**** ***   Get All Student Course Data   *** *****
     public List<StudentCourse> getAllStudentCourses() {
 
         return studentCourseRepository.findAll();
     }
 
+//**** ***   Get Student Course Data By id   *** *****
     public StudentCourse getStudentCourseById(Long id) {
 
         return studentCourseRepository.findById(id).get();
     }
 
+//**** ***   Delete Student Course Data By id   *** *****
     public void deleteStudentCourse(Long id) {
 
         studentCourseRepository.deleteById(id);
     }
 
+//**** ***   Update Student Course Data By id   *** *****
     public StudentCourse updateStudentCourse(Long id, StudentCourse updateData){
         StudentCourse studentCourse = studentCourseRepository.findById(id).orElse(null);
         if (studentCourse != null) {

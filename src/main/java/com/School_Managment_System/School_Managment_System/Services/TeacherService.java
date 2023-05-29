@@ -12,29 +12,34 @@ import java.util.List;
 public class TeacherService {
     @Autowired
     TeacherRepository teacherRepository;
-    public List<Teacher> getAllTeachers() {
 
-        return teacherRepository.findAll();
-    }
-
-    public Teacher getTeacherById(Long id) {
-
-        return teacherRepository.findById(id).get();
-    }
-
+//**** ***   Add New Teacher Data   *** *****
     public void addTeacher(TeacherRequest teacherRequest){
         Teacher teacher = TeacherRequest.convert(teacherRequest);
         teacherRepository.save(teacher);
     }
 
+//**** ***   Get All Teacher Data   *** *****
+    public List<Teacher> getAllTeachers() {
+
+        return teacherRepository.findAll();
+    }
+
+//**** ***   Get Teacher Data By id   *** *****
+    public Teacher getTeacherById(Long id) {
+
+        return teacherRepository.findById(id).get();
+    }
+
+//**** ***   Delete Teacher Data By id   *** *****
     public void deleteTeacher(Long id) {
 
         teacherRepository.deleteById(id);
     }
 
+//**** ***   Update Teacher Data By id   *** *****
     public Teacher updateTeacher(Long id, Teacher updateData){
         Teacher teacher = teacherRepository.findById(id).orElse(null);
-
         if (teacher != null) {
             teacher.setName(updateData.getName());
             teacher.setPhoneNumber(updateData.getPhoneNumber());

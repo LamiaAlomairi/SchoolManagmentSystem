@@ -5,32 +5,38 @@ import com.School_Managment_System.School_Managment_System.Repositories.ClassRoo
 import com.School_Managment_System.School_Managment_System.Request.ClassRoomRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.*;
 
 @Service
 public class ClassRoomService {
     @Autowired
     ClassRoomRepository classRoomRepository;
-    public List<ClassRoom> getAllClassRooms() {
 
-        return classRoomRepository.findAll();
-    }
-
-    public ClassRoom getClassRoomById(Long id) {
-
-        return classRoomRepository.findById(id).get();
-    }
-
+//****    Create New Class Room Data    *****
     public void addClassRoom(ClassRoomRequest classRoomRequest) {
         ClassRoom classRoom = ClassRoomRequest.convert(classRoomRequest);
         classRoomRepository.save(classRoom);
     }
 
+//****    Get All Data Of Class Room    *****
+    public List<ClassRoom> getAllClassRooms() {
+
+        return classRoomRepository.findAll();
+    }
+
+//****    Get Data By id Of Class Room    *****
+    public ClassRoom getClassRoomById(Long id) {
+
+        return classRoomRepository.findById(id).get();
+    }
+
+//****    Delete Class Room Data By Id   *****
     public void deleteClassRoom(Long id) {
+
         classRoomRepository.deleteById(id);
     }
 
+//****    Update Class Room Data    *****
     public ClassRoom updateClassRoom(Long id, ClassRoom updateData){
         ClassRoom classRoom = classRoomRepository.findById(id).orElse(null);
         if (classRoom != null) {
