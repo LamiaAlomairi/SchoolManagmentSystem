@@ -2,10 +2,13 @@ package com.School_Managment_System.School_Managment_System.Controllers;
 
 import com.School_Managment_System.School_Managment_System.Models.ClassRoom;
 import com.School_Managment_System.School_Managment_System.Request.ClassRoomRequest;
+import com.School_Managment_System.School_Managment_System.Response.ClassRoomResponse;
 import com.School_Managment_System.School_Managment_System.Services.ClassRoomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -22,17 +25,27 @@ public class ClassRoomController {
 
 //****    Get All Data Of Class Room    *****
     @GetMapping(value = "getAll")
-    public List<ClassRoom> getAllClassRooms() {
-        return classRoomService.getAllClassRooms();
+    public List<ClassRoomResponse> getAllClassRooms() {
+        List<ClassRoom> classRooms = new ArrayList<>();
+        classRooms = classRoomService.getAllClassRooms();
+        List<ClassRoomResponse> listOfConvertedClassRoom =ClassRoomResponse.convertRequestListToResponseList(classRooms);
+        return listOfConvertedClassRoom;
     }
+//    public List<ClassRoom> getAllClassRooms() {
+//        return classRoomService.getAllClassRooms();
+//    }
 
 //****    Get Data By id Of Class Room    *****
     //http://localhost:8080/classRoom/getById?id=2
     @GetMapping(value = "getById")
-    public ClassRoom getClassRoomById(@RequestParam Long id) {
-
-        return classRoomService.getClassRoomById(id);
+    public ClassRoomResponse getClassRoomById(@RequestParam Long id) {
+        ClassRoom classRoomToBeConverted = classRoomService.getClassRoomById(id);
+        ClassRoomResponse convertedClassRoom = ClassRoomResponse.convertRequestToResponse(classRoomToBeConverted);
+        return convertedClassRoom;
     }
+//    public ClassRoom getClassRoomById(@RequestParam Long id) {
+//        return classRoomService.getClassRoomById(id);
+//    }
 
 //****    Delete Class Room Data By Id   *****
     @DeleteMapping("{id}")

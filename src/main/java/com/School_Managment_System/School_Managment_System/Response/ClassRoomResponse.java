@@ -20,6 +20,7 @@ public class ClassRoomResponse {
         return ClassRoomResponse.builder()
                 .id(classRequest.getId())
                 .name(classRequest.getName())
+                .size(classRequest.getSize())
                 .classCode(classRequest.getClassCode())
                 .build();
     }

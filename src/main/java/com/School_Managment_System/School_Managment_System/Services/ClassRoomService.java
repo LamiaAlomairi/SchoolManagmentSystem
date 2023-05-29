@@ -23,6 +23,10 @@ public class ClassRoomService {
 
         return classRoomRepository.findAll();
     }
+//    public List<ClassRoom> getAllClassRooms() {
+//
+//        return classRoomRepository.getAllClassRooms();
+//    }
 
 //****    Get Data By id Of Class Room    *****
     public ClassRoom getClassRoomById(Long id) {
