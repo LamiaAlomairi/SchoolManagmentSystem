@@ -26,12 +26,9 @@ public class ClassRoomController {
     public List<ClassRoomResponse> getAllClassRooms() {
         List<ClassRoom> classRooms = new ArrayList<>();
         classRooms = classRoomService.getAllClassRooms();
-        List<ClassRoomResponse> listOfConvertedClassRoom =ClassRoomResponse.convertRequestListToResponseList(classRooms);
+        List<ClassRoomResponse> listOfConvertedClassRoom = ClassRoomResponse.convertRequestListToResponseList(classRooms);
         return listOfConvertedClassRoom;
     }
-//    public List<ClassRoom> getAllClassRooms() {
-//        return classRoomService.getAllClassRooms();
-//    }
 
 //****    Get Data By id Of Class Room    *****
     //http://localhost:8080/classRoom/getById?id=2
@@ -41,9 +38,6 @@ public class ClassRoomController {
         ClassRoomResponse convertedClassRoom = ClassRoomResponse.convertRequestToResponse(classRoomToBeConverted);
         return convertedClassRoom;
     }
-//    public ClassRoom getClassRoomById(@RequestParam Long id) {
-//        return classRoomService.getClassRoomById(id);
-//    }
 
 //****    Delete Class Room Data By Id   *****
     @DeleteMapping("{id}")

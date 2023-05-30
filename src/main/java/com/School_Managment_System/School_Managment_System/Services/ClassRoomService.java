@@ -20,21 +20,16 @@ public class ClassRoomService {
 
 //****    Get All Data Of Class Room    *****
     public List<ClassRoom> getAllClassRooms() {
-
-        return classRoomRepository.findAll();
+         return classRoomRepository.getAllClassRooms();
     }
-//    public List<ClassRoom> getAllClassRooms() {
-//
-//        return classRoomRepository.getAllClassRooms();
-//    }
 
 //****    Get Data By id Of Class Room    *****
     public ClassRoom getClassRoomById(Long id) {
 
-        return classRoomRepository.findById(id).get();
+        return classRoomRepository.getClassRoomById(id);
     }
 
-//****    Delete Class Room Data By Id   *****
+    //****    Delete Class Room Data By Id   *****
     public void deleteClassRoom(Long id) {
 
         classRoomRepository.deleteById(id);

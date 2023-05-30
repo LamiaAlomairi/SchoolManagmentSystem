@@ -8,6 +8,10 @@ import java.util.*;
 
 @Repository
 public interface ClassRoomRepository extends JpaRepository<ClassRoom, Long> {
-//    @Query(value = "select cr from ClassRoom cr")
-//    List<ClassRoom> getAllClassRooms();
+    @Query(value = "select cr from ClassRoom cr")
+    List<ClassRoom> getAllClassRooms();
+
+    @Query(value = "select cr from ClassRoom cr where cr.id = :id")
+    ClassRoom getClassRoomById(Long id);
+
 }
