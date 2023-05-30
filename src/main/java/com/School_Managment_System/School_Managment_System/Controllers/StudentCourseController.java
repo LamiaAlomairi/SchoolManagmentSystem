@@ -2,11 +2,13 @@ package com.School_Managment_System.School_Managment_System.Controllers;
 
 import com.School_Managment_System.School_Managment_System.Models.StudentCourse;
 import com.School_Managment_System.School_Managment_System.Request.StudentCourseRequest;
+import com.School_Managment_System.School_Managment_System.Response.StudentCourseResponse;
 import com.School_Managment_System.School_Managment_System.Services.StudentCourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -23,9 +25,11 @@ public class StudentCourseController {
 
 //**** ***   Get All Student Course Data   *** *****
     @GetMapping(value = "getAll")
-    public List<StudentCourse> getAllStudentCourses() {
-
-        return studentCourseService.getAllStudentCourses();
+    public List<StudentCourseResponse> getAllStudentCourses() {
+        List<StudentCourse> studentCourses = new ArrayList<>();
+        studentCourses = studentCourseService.getAllStudentCourses();
+        List<StudentCourseResponse> listOfConvertedStudentCourse = StudentCourseResponse.convertRequestListToResponseList(studentCourses);
+        return listOfConvertedStudentCourse;
     }
 
 //**** ***   Get Student Course Data By id   *** *****

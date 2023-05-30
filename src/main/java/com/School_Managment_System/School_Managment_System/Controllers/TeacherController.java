@@ -2,10 +2,13 @@ package com.School_Managment_System.School_Managment_System.Controllers;
 
 import com.School_Managment_System.School_Managment_System.Models.Teacher;
 import com.School_Managment_System.School_Managment_System.Request.TeacherRequest;
+import com.School_Managment_System.School_Managment_System.Response.TeacherResponse;
 import com.School_Managment_System.School_Managment_System.Services.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -23,9 +26,11 @@ public class TeacherController {
 
 //**** ***   Get All Teacher Data   *** *****
     @GetMapping(value = "getAll")
-    public List<Teacher> getAllTeachers() {
-
-        return teacherService.getAllTeachers();
+    public List<TeacherResponse> getAllTeachers() {
+        List<Teacher> teachers = new ArrayList<>();
+        teachers = teacherService.getAllTeachers();
+        List<TeacherResponse> listOfConvertedTeacher =TeacherResponse.convertRequestListToResponseList(teachers);
+        return listOfConvertedTeacher;
     }
 
 //**** ***   Get Teacher Data By id   *** *****
