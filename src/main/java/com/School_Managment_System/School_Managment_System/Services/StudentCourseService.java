@@ -21,13 +21,13 @@ public class StudentCourseService {
 //**** ***   Get All Student Course Data   *** *****
     public List<StudentCourse> getAllStudentCourses() {
 
-        return studentCourseRepository.findAll();
+        return studentCourseRepository.getAllStudentCourses();
     }
 
 //**** ***   Get Student Course Data By id   *** *****
     public StudentCourse getStudentCourseById(Long id) {
 
-        return studentCourseRepository.findById(id).get();
+        return studentCourseRepository.getStudentCourseById(id);
     }
 
 //**** ***   Delete Student Course Data By id   *** *****

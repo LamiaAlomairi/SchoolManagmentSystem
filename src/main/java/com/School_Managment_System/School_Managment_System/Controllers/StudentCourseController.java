@@ -1,8 +1,11 @@
 package com.School_Managment_System.School_Managment_System.Controllers;
 
+import com.School_Managment_System.School_Managment_System.Models.Course;
 import com.School_Managment_System.School_Managment_System.Models.StudentCourse;
 import com.School_Managment_System.School_Managment_System.Request.StudentCourseRequest;
+import com.School_Managment_System.School_Managment_System.Response.CourseResponse;
 import com.School_Managment_System.School_Managment_System.Response.StudentCourseResponse;
+import com.School_Managment_System.School_Managment_System.Response.StudentResponse;
 import com.School_Managment_System.School_Managment_System.Services.StudentCourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -34,9 +37,10 @@ public class StudentCourseController {
 
 //**** ***   Get Student Course Data By id   *** *****
     @GetMapping(value = "getById")
-    public StudentCourse getStudentCourseById(@RequestParam Long id) {
-
-        return studentCourseService.getStudentCourseById(id);
+    public StudentCourseResponse getStudentCourseById(@RequestParam Long id) {
+        StudentCourse studentCourseToBeConverted = studentCourseService.getStudentCourseById(id);
+        StudentCourseResponse convertedStudentCourse = StudentCourseResponse.convertRequestToResponse(studentCourseToBeConverted);
+        return convertedStudentCourse;
     }
 
 //**** ***   Delete Student Course Data By id   *** *****

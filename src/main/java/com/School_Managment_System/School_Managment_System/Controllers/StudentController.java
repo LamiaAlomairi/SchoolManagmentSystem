@@ -29,15 +29,16 @@ public class StudentController {
     public List<StudentResponse> getAllStudents() {
         List<Student> students = new ArrayList<>();
         students = studentService.getAllStudents();
-        List<StudentResponse> listOfConvertedStudent =StudentResponse.convertRequestListToResponseList(students);
+        List<StudentResponse> listOfConvertedStudent = StudentResponse.convertRequestListToResponseList(students);
         return listOfConvertedStudent;
     }
 
 //**** ***   Get Student Data By id   *** *****
     @GetMapping(value = "getById")
-    public Student getStudentById(@RequestParam Long id) {
-
-        return studentService.getStudentById(id);
+    public StudentResponse getStudentById(@RequestParam Long id) {
+        Student studentToBeConverted = studentService.getStudentById(id);
+        StudentResponse convertedStudent = StudentResponse.convertRequestToResponse(studentToBeConverted);
+        return convertedStudent;
     }
 
 //**** ***   Delete Student Data By id   *** *****

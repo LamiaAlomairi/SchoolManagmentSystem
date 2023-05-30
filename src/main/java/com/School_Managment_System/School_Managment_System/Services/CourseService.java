@@ -26,7 +26,7 @@ public class CourseService {
 //**** ***   Get Course Data By id   *** *****
     public Course getCourseById(Long id) {
 
-        return courseRepository.findById(id).get();
+        return courseRepository.getCourseById(id);
     }
 
 //**** ***   Delete Course Data By id   *** *****
