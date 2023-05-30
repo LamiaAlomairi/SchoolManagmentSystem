@@ -22,13 +22,13 @@ public class TeacherService {
 //**** ***   Get All Teacher Data   *** *****
     public List<Teacher> getAllTeachers() {
 
-        return teacherRepository.findAll();
+        return teacherRepository.getAllTeachers();
     }
 
 //**** ***   Get Teacher Data By id   *** *****
     public Teacher getTeacherById(Long id) {
 
-        return teacherRepository.findById(id).get();
+        return teacherRepository.getTeacherById(id);
     }
 
 //**** ***   Delete Teacher Data By id   *** *****

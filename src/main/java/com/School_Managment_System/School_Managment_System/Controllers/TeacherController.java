@@ -35,9 +35,10 @@ public class TeacherController {
 
 //**** ***   Get Teacher Data By id   *** *****
     @GetMapping(value = "getById")
-    public Teacher getTeacherById(@RequestParam Long id) {
-
-        return teacherService.getTeacherById(id);
+    public TeacherResponse getTeacherById(@RequestParam Long id) {
+        Teacher teacherToBeConverted = teacherService.getTeacherById(id);
+        TeacherResponse convertedTeacher = TeacherResponse.convertRequestToResponse(teacherToBeConverted);
+        return convertedTeacher;
     }
 
 //**** ***   Delete Teacher Data By id   *** *****

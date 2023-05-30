@@ -1,11 +1,8 @@
 package com.School_Managment_System.School_Managment_System.Controllers;
 
-import com.School_Managment_System.School_Managment_System.Models.Course;
 import com.School_Managment_System.School_Managment_System.Models.StudentCourse;
 import com.School_Managment_System.School_Managment_System.Request.StudentCourseRequest;
-import com.School_Managment_System.School_Managment_System.Response.CourseResponse;
 import com.School_Managment_System.School_Managment_System.Response.StudentCourseResponse;
-import com.School_Managment_System.School_Managment_System.Response.StudentResponse;
 import com.School_Managment_System.School_Managment_System.Services.StudentCourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
