@@ -20,8 +20,7 @@ public class CourseService {
 
 //**** ***   Get All Course Data   *** *****
     public List<Course> getAllCourses() {
-
-        return courseRepository.findAll();
+         return courseRepository.getAllCourses();
     }
 
 //**** ***   Get Course Data By id   *** *****

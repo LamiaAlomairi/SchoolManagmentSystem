@@ -33,9 +33,10 @@ public class CourseController {
 
 //**** ***   Get Course Data By id   *** *****
     @GetMapping(value = "getById")
-    public Course getCourseById(@RequestParam Long id) {
-
-        return courseService.getCourseById(id);
+    public CourseResponse getCourseById(@RequestParam Long id) {
+        Course courseToBeConverted = courseService.getCourseById(id);
+        CourseResponse convertedCourse = CourseResponse.convertRequestToResponse(courseToBeConverted);
+        return convertedCourse;
     }
 
 //**** ***   Delete Course Data By id   *** *****
