@@ -20,13 +20,6 @@ public class Course extends BaseEntity {
     String description;
     String courseCode;
 
-    @OneToMany(mappedBy = "course")
-    @JsonIgnore
-    private List<StudentCourse> studentCourses;
-
-    @OneToOne(mappedBy = "course")
-    private Teacher teacher;
-
     @ManyToOne
     @JoinColumn(name = "class_id", referencedColumnName = "id")
     ClassRoom classRoom;

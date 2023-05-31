@@ -5,8 +5,7 @@ import com.School_Managment_System.School_Managment_System.Repositories.TeacherR
 import com.School_Managment_System.School_Managment_System.Request.TeacherRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
+import java.util.*;
 
 @Service
 public class TeacherService {

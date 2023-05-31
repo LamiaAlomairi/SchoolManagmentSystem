@@ -41,8 +41,8 @@ public class ClassRoomService {
         if (classRoom != null) {
             classRoom.setName(updateData.getName());
             classRoom.setClassCode(updateData.getClassCode());
-            classRoom.setSize(updateData.getSize());
-            classRoom.setCourses(updateData.getCourses());
+            classRoom.setArea(updateData.getArea());
+//            classRoom.setCourses(updateData.getCourses());
 
             return classRoomRepository.save(classRoom);
         }

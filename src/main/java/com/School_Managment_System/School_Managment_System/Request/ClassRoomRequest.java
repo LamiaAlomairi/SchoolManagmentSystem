@@ -10,8 +10,9 @@ import java.util.*;
 @Setter
 @Data
 public class ClassRoomRequest {
+    private Long id;
     private String name;
-    private Float size;
+    private Float area;
     private String classCode;
 
     public static ClassRoom convert(ClassRoomRequest request) {
@@ -19,7 +20,7 @@ public class ClassRoomRequest {
         ClassRoom classRoom = new ClassRoom();
 
         classRoom.setName(request.getName());
-        classRoom.setSize(request.getSize());
+        classRoom.setArea(request.getArea());
         classRoom.setClassCode(request.getClassCode());
         classRoom.setIsActive(true);
         classRoom.setCreatedDate(nowDate);

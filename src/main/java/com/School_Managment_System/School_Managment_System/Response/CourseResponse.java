@@ -1,13 +1,12 @@
 package com.School_Managment_System.School_Managment_System.Response;
 
+import com.School_Managment_System.School_Managment_System.Models.ClassRoom;
 import com.School_Managment_System.School_Managment_System.Models.Course;
 import lombok.Builder;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
-
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 @Getter
 @Setter
@@ -18,6 +17,7 @@ public class CourseResponse {
     String name;
     String description;
     String courseCode;
+    ClassRoom classRoom;
 
     public static CourseResponse convertRequestToResponse(Course courseRequest) {
         return CourseResponse.builder()
@@ -25,6 +25,7 @@ public class CourseResponse {
                 .name(courseRequest.getName())
                 .description(courseRequest.getDescription())
                 .courseCode(courseRequest.getCourseCode())
+                .classRoom(courseRequest.getClassRoom())
                 .build();
     }
 

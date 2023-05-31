@@ -1,13 +1,11 @@
 package com.School_Managment_System.School_Managment_System.Request;
 
+import com.School_Managment_System.School_Managment_System.Models.ClassRoom;
 import com.School_Managment_System.School_Managment_System.Models.Course;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
-
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;;
 
 @Getter
 @Setter
@@ -16,8 +14,7 @@ public class CourseRequest {
     String name;
     String description;
     String courseCode;
-    Integer teacherId;
-    Integer classRoomId;
+    ClassRoom classRoom;
 
     public static Course convert(CourseRequest request) {
         Date nowDate = new Date();
