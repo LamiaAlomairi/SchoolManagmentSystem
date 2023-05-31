@@ -16,6 +16,8 @@ public class CourseRequest {
     String name;
     String description;
     String courseCode;
+    Integer teacherId;
+    Integer classRoomId;
 
     public static Course convert(CourseRequest request) {
         Date nowDate = new Date();

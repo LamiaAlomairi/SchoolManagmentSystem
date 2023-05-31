@@ -1,7 +1,11 @@
 package com.School_Managment_System.School_Managment_System.Services;
 
+import com.School_Managment_System.School_Managment_System.Models.ClassRoom;
 import com.School_Managment_System.School_Managment_System.Models.Course;
+import com.School_Managment_System.School_Managment_System.Models.Teacher;
+import com.School_Managment_System.School_Managment_System.Repositories.ClassRoomRepository;
 import com.School_Managment_System.School_Managment_System.Repositories.CourseRepository;
+import com.School_Managment_System.School_Managment_System.Repositories.TeacherRepository;
 import com.School_Managment_System.School_Managment_System.Request.CourseRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,10 +15,18 @@ import java.util.List;
 public class CourseService {
     @Autowired
     CourseRepository courseRepository;
+    @Autowired
+    TeacherRepository teacherRepository;
+    @Autowired
+    ClassRoomRepository classRoomRepository;
 
 //**** ***   Add New Course Data   *** *****
     public void addCourse(CourseRequest courseRequest){
         Course course = CourseRequest.convert(courseRequest);
+        Teacher teacher = teacherRepository.getTeacherById(courseRequest.getTeacherId().longValue());
+        course.setTeacher(teacher);
+        ClassRoom classRoom = classRoomRepository.getClassRoomById(courseRequest.getClassRoomId().longValue());
+        course.setClassRoom(classRoom);
         courseRepository.save(course);
     }
 
