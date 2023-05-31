@@ -1,5 +1,7 @@
 package com.School_Managment_System.School_Managment_System.Request;
 
+import com.School_Managment_System.School_Managment_System.Models.Course;
+import com.School_Managment_System.School_Managment_System.Models.Student;
 import com.School_Managment_System.School_Managment_System.Models.StudentCourse;
 import lombok.Data;
 import lombok.Getter;
@@ -14,6 +16,8 @@ import java.util.List;
 @Data
 public class StudentCourseRequest {
     Double grade;
+    Student student;
+    Course course;
 
     public static StudentCourse convert(StudentCourseRequest request) {
         Date nowDate = new Date();

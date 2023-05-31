@@ -1,6 +1,8 @@
 package com.School_Managment_System.School_Managment_System.Services;
 
+import com.School_Managment_System.School_Managment_System.Models.Course;
 import com.School_Managment_System.School_Managment_System.Models.Teacher;
+import com.School_Managment_System.School_Managment_System.Repositories.CourseRepository;
 import com.School_Managment_System.School_Managment_System.Repositories.TeacherRepository;
 import com.School_Managment_System.School_Managment_System.Request.TeacherRequest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,10 +13,14 @@ import java.util.*;
 public class TeacherService {
     @Autowired
     TeacherRepository teacherRepository;
+    @Autowired
+    CourseRepository courseRepository;
 
 //**** ***   Add New Teacher Data   *** *****
     public void addTeacher(TeacherRequest teacherRequest){
         Teacher teacher = TeacherRequest.convert(teacherRequest);
+        Course course = courseRepository.getCourseById(teacherRequest.getCourse().getId());
+        teacher.setCourse(course);
         teacherRepository.save(teacher);
     }
 

@@ -1,5 +1,6 @@
 package com.School_Managment_System.School_Managment_System.Response;
 
+import com.School_Managment_System.School_Managment_System.Models.Course;
 import com.School_Managment_System.School_Managment_System.Models.Teacher;
 import lombok.Builder;
 import lombok.Data;
@@ -17,6 +18,7 @@ public class TeacherResponse {
     String phoneNumber;
     String specialization;
     Integer age;
+    Course course;
 
     public static TeacherResponse convertRequestToResponse(Teacher teacherRequest) {
         return TeacherResponse.builder()
@@ -25,6 +27,7 @@ public class TeacherResponse {
                 .phoneNumber(teacherRequest.getPhoneNumber())
                 .specialization(teacherRequest.getSpecialization())
                 .age(teacherRequest.getAge())
+                .course(teacherRequest.getCourse())
                 .build();
     }
 

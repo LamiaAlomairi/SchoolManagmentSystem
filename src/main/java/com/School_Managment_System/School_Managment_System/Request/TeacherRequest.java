@@ -1,5 +1,6 @@
 package com.School_Managment_System.School_Managment_System.Request;
 
+import com.School_Managment_System.School_Managment_System.Models.Course;
 import com.School_Managment_System.School_Managment_System.Models.Teacher;
 import lombok.Data;
 import lombok.Getter;
@@ -18,6 +19,7 @@ public class TeacherRequest {
     String phoneNumber;
     String specialization;
     Integer age;
+    Course course;
 
     public static Teacher convert(TeacherRequest request) {
         Date nowDate = new Date();
