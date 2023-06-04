@@ -36,16 +36,12 @@ public class ClassRoomService {
     }
 
 //****    Update Class Room Data    *****
-    public ClassRoom updateClassRoom(Long id, ClassRoom updateData){
-        ClassRoom classRoom = classRoomRepository.findById(id).orElse(null);
-        if (classRoom != null) {
-            classRoom.setName(updateData.getName());
-            classRoom.setClassCode(updateData.getClassCode());
-            classRoom.setArea(updateData.getArea());
-//            classRoom.setCourses(updateData.getCourses());
-
-            return classRoomRepository.save(classRoom);
-        }
-        return null;
+    public void updateClassRoom(ClassRoomRequest classRoomRequest){
+        ClassRoom classRoom = getClassRoomById(classRoomRequest.getId());
+        classRoom.setName(classRoomRequest.getName());
+        classRoom.setClassCode(classRoomRequest.getClassCode());
+        classRoom.setArea(classRoomRequest.getArea());
+        classRoom.setUpdatedDate(new Date());
+        classRoomRepository.save(classRoom);
     }
 }
