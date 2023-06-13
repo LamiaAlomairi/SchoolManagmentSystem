@@ -43,9 +43,8 @@ public class StudentCourseService {
     }
 
 //**** ***   Delete Student Course Data By id   *** *****
-    public void deleteStudentCourse(Long id) {
-
-        studentCourseRepository.deleteById(id);
+    public void deleteStudentCourseById(Long id) {
+        studentCourseRepository.deleteStudentCourseById(id);
     }
 
 //**** ***   Update Student Course Data By id   *** *****

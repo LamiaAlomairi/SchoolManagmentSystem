@@ -5,7 +5,6 @@ import com.School_Managment_System.School_Managment_System.Request.StudentCourse
 import com.School_Managment_System.School_Managment_System.Response.StudentCourseResponse;
 import com.School_Managment_System.School_Managment_System.Services.StudentCourseService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.*;
 
@@ -40,9 +39,9 @@ public class StudentCourseController {
 
 //**** ***   Delete Student Course Data By id   *** *****
     @DeleteMapping("{id}")
-    public ResponseEntity<String> deleteStudentCourse(@PathVariable long id){
-        studentCourseService.deleteStudentCourse(id);
-        return ResponseEntity.ok("Student course deleted successfully.");
+    public String deleteStudentCourseById(@PathVariable long id){
+        studentCourseService.deleteStudentCourseById(id);
+        return "Student course deleted successfully.";
     }
 
 //**** ***   Update Student Course Data By id   *** *****
