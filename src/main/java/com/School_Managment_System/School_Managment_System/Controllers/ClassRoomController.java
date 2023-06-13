@@ -45,10 +45,20 @@ public class ClassRoomController {
 //****    Delete Class Room Data By Id   *****
     @DeleteMapping("{id}")
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<String> deleteClassRoom(@PathVariable long id){
-        classRoomService.deleteClassRoom(id);
-        return ResponseEntity.ok("Class room deleted successfully.");
+    public String deleteClassRoomById(@PathVariable long id){
+        classRoomService.deleteClassRoomById(id);
+        return "Class room deleted successfully.";
     }
+
+//    public String deleteClassRoom(@PathVariable long id){
+//        try{
+//            classRoomService.deleteClassRoomById(id);
+//        }
+//        catch (Exception e){
+//            return "Deleting Failed Please Check The Id";
+//        }
+//        return "Class room deleted successfully.";
+//    }
 
 //****    Update Class Room Data    *****
     @PutMapping("{id}")
