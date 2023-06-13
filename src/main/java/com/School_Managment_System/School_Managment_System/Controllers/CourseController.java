@@ -42,9 +42,9 @@ public class CourseController {
 
 //**** ***   Delete Course Data By id   *** *****
     @DeleteMapping("{id}")
-    public ResponseEntity<String> deleteCourse(@PathVariable long id){
-        courseService.deleteCourse(id);
-        return ResponseEntity.ok("Course deleted successfully.");
+    public String deleteCourseById(@PathVariable long id){
+        courseService.deleteCourseById(id);
+        return "Course deleted successfully.";
     }
 
 //**** ***   Update Course Data By id   *** *****

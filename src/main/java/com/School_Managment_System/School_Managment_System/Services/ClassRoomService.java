@@ -33,13 +33,6 @@ public class ClassRoomService {
     public void deleteClassRoomById(Long id) {
         classRoomRepository.deleteClassRoomById(id);
     }
-//    public String deleteClassRoomById(Long id) {
-//
-//        ClassRoom classRoom = classRoomRepository.getClassRoomById(id);
-//        classRoom.setIsActive(false);
-//        classRoomRepository.save(classRoom);
-//        return "Class Room Id " + id + "Deleted Successfully ";
-//    }
 
 //****    Update Class Room Data    *****
     public void updateClassRoom(Long id, ClassRoomRequest classRoomRequest) {
