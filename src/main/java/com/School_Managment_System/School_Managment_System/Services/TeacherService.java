@@ -43,16 +43,14 @@ public class TeacherService {
     }
 
 //**** ***   Update Teacher Data By id   *** *****
-    public Teacher updateTeacher(Long id, Teacher updateData){
-        Teacher teacher = teacherRepository.findById(id).orElse(null);
+    public void updateTeacher(Long id, TeacherRequest teacherRequest){
+        Teacher teacher = teacherRepository.getTeacherById(id);
         if (teacher != null) {
-            teacher.setName(updateData.getName());
-            teacher.setPhoneNumber(updateData.getPhoneNumber());
-            teacher.setAge(updateData.getAge());
-            teacher.setSpecialization(updateData.getSpecialization());
-
-            return teacherRepository.save(teacher);
+            teacher.setName(teacherRequest.getName());
+            teacher.setPhoneNumber(teacherRequest.getPhoneNumber());
+            teacher.setAge(teacherRequest.getAge());
+            teacher.setSpecialization(teacherRequest.getSpecialization());
+            teacherRepository.save(teacher);
         }
-        return null;
     }
 }

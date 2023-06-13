@@ -47,12 +47,7 @@ public class StudentCourseController {
 
 //**** ***   Update Student Course Data By id   *** *****
     @PutMapping("{id}")
-    public ResponseEntity<StudentCourse> updateStudentCourse(@PathVariable Long id, @RequestBody StudentCourse updateData){
-        StudentCourse studentCourse = studentCourseService.updateStudentCourse(id, updateData);
-        if (studentCourse != null) {
-            return ResponseEntity.ok(studentCourse);
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+    public void updateStudentCourse(@PathVariable Long id, @RequestBody StudentCourseRequest studentCourseRequest){
+        studentCourseService.updateStudentCourse(id, studentCourseRequest);
     }
 }

@@ -49,17 +49,13 @@ public class StudentCourseService {
     }
 
 //**** ***   Update Student Course Data By id   *** *****
-    public StudentCourse updateStudentCourse(Long id, StudentCourse updateData){
-        StudentCourse studentCourse = studentCourseRepository.findById(id).orElse(null);
+    public void updateStudentCourse(Long id, StudentCourseRequest studentCourseRequest){
+        StudentCourse studentCourse = studentCourseRepository.getStudentCourseById(id);
         if (studentCourse != null) {
-            studentCourse.setGrade(updateData.getGrade());
-            studentCourse.setStudent(updateData.getStudent());
-            studentCourse.setCourse(updateData.getCourse());
-            studentCourse.setIsActive(updateData.getIsActive());
-            studentCourse.setUpdatedDate(updateData.getUpdatedDate());
-
-            return studentCourseRepository.save(studentCourse);
+            studentCourse.setGrade(studentCourseRequest.getGrade());
+            studentCourse.setStudent(studentCourseRequest.getStudent());
+            studentCourse.setCourse(studentCourseRequest.getCourse());
+            studentCourseRepository.save(studentCourse);
         }
-        return null;
     }
 }

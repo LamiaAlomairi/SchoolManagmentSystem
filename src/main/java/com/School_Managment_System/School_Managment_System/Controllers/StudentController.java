@@ -48,12 +48,7 @@ public class StudentController {
 
 //**** ***   Update Student Data By id   *** *****
     @PutMapping("{id}")
-    public ResponseEntity<Student> updateStudent(@PathVariable Long id, @RequestBody Student updateData){
-        Student student = studentService.updateStudent(id, updateData);
-        if (student != null) {
-            return ResponseEntity.ok(student);
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+    public void updateStudent(@PathVariable Long id, @RequestBody StudentRequest studentRequest){
+        studentService.updateStudent(id, studentRequest);
     }
 }

@@ -7,6 +7,8 @@ import com.School_Managment_System.School_Managment_System.Repositories.CourseRe
 import com.School_Managment_System.School_Managment_System.Request.CourseRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -42,16 +44,14 @@ public class CourseService {
     }
 
 //**** ***   Update Course Data By id   *** *****
-    public Course updateCourse(Long id, Course updateData){
-        Course course = courseRepository.findById(id).orElse(null);
+    public void updateCourse(Long id, CourseRequest courseRequest){
+        Course course = courseRepository.getCourseById(id);
         if (course != null) {
-            course.setName(updateData.getName());
-            course.setCourseCode(updateData.getCourseCode());
-            course.setDescription(updateData.getDescription());
-            course.setClassRoom(updateData.getClassRoom());
-
-            return courseRepository.save(course);
+            course.setName(courseRequest.getName());
+            course.setCourseCode(courseRequest.getCourseCode());
+            course.setDescription(courseRequest.getDescription());
+            course.setClassRoom(courseRequest.getClassRoom());
+            courseRepository.save(course);
         }
-        return null;
     }
 }

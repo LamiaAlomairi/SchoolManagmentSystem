@@ -37,16 +37,14 @@ public class StudentService {
     }
 
 //**** ***   Update Student Data By id   *** *****
-    public Student updateStudent(Long id, Student updateData){
-        Student student = studentRepository.findById(id).orElse(null);
+    public void updateStudent(Long id, StudentRequest studentRequest){
+        Student student = studentRepository.getStudentById(id);
         if (student != null) {
-            student.setName(updateData.getName());
-            student.setEmail(updateData.getEmail());
-            student.setAge(updateData.getAge());
-            student.setGender(updateData.getGender());
-
-            return studentRepository.save(student);
+            student.setName(studentRequest.getName());
+            student.setEmail(studentRequest.getEmail());
+            student.setAge(studentRequest.getAge());
+            student.setGender(studentRequest.getGender());
+            studentRepository.save(student);
         }
-        return null;
     }
 }

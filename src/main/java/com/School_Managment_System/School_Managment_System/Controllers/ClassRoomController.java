@@ -44,7 +44,7 @@ public class ClassRoomController {
 
 //****    Delete Class Room Data By Id   *****
     @DeleteMapping("{id}")
-    @PreAuthorize("hasRole('ADMIN')") // Authorization: Only users with 'ADMIN' role can access
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<String> deleteClassRoom(@PathVariable long id){
         classRoomService.deleteClassRoom(id);
         return ResponseEntity.ok("Class room deleted successfully.");
@@ -52,9 +52,8 @@ public class ClassRoomController {
 
 //****    Update Class Room Data    *****
     @PutMapping("{id}")
-    @PreAuthorize("hasRole('ADMIN')") // Authorization: Only users with 'ADMIN' role can access
+    @PreAuthorize("hasRole('ADMIN')")
     public void updateClassRoom(@PathVariable long id, @RequestBody @Validated ClassRoomRequest classRoomRequest) {
-        classRoomRequest.setId(id); // Ensure the ID is consistent
-        classRoomService.updateClassRoom(classRoomRequest);
+        classRoomService.updateClassRoom(id, classRoomRequest);
     }
 }

@@ -48,12 +48,7 @@ public class TeacherController {
 
 //**** ***   Update Teacher Data By id   *** *****
     @PutMapping("{id}")
-    public ResponseEntity<Teacher> updateTeacher(@PathVariable Long id, @RequestBody Teacher updateData){
-        Teacher teacher = teacherService.updateTeacher(id, updateData);
-        if (teacher != null) {
-            return ResponseEntity.ok(teacher);
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+    public void updateTeacher(@PathVariable Long id, @RequestBody TeacherRequest teacherRequest){
+        teacherService.updateTeacher(id, teacherRequest);
     }
 }

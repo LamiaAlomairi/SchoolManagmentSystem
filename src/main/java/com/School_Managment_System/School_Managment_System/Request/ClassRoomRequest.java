@@ -10,7 +10,6 @@ import java.util.*;
 @Setter
 @Data
 public class ClassRoomRequest {
-    private Long id;
     private String name;
     private Float area;
     private String classCode;
