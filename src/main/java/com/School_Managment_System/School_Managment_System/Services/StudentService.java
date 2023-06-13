@@ -20,20 +20,17 @@ public class StudentService {
 
 //**** ***   Get All Student Data   *** *****
     public List<Student> getAllStudents() {
-
         return studentRepository.getAllStudents();
     }
 
 //**** ***   Get Student Data By id   *** *****
     public Student getStudentById(Long id) {
-
         return studentRepository.getStudentById(id);
     }
 
 //**** ***   Delete Student Data By id   *** *****
-    public void deleteStudent(Long id) {
-
-        studentRepository.deleteById(id);
+    public void deleteStudentById(Long id) {
+        studentRepository.deleteStudentById(id);
     }
 
 //**** ***   Update Student Data By id   *** *****
