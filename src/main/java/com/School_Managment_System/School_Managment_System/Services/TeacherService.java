@@ -32,14 +32,12 @@ public class TeacherService {
 
 //**** ***   Get Teacher Data By id   *** *****
     public Teacher getTeacherById(Long id) {
-
         return teacherRepository.getTeacherById(id);
     }
 
 //**** ***   Delete Teacher Data By id   *** *****
-    public void deleteTeacher(Long id) {
-
-        teacherRepository.deleteById(id);
+    public void deleteTeacherById(Long id) {
+        teacherRepository.deleteTeacherById(id);
     }
 
 //**** ***   Update Teacher Data By id   *** *****

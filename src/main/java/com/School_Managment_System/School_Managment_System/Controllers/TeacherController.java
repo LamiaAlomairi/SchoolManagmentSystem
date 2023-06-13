@@ -41,9 +41,9 @@ public class TeacherController {
 
 //**** ***   Delete Teacher Data By id   *** *****
     @DeleteMapping("{id}")
-    public ResponseEntity<String> deleteTeacher(@PathVariable long id){
-        teacherService.deleteTeacher(id);
-        return ResponseEntity.ok("Entity deleted successfully.");
+    public String deleteTeacherById(@PathVariable long id){
+        teacherService.deleteTeacherById(id);
+        return "Entity deleted successfully.";
     }
 
 //**** ***   Update Teacher Data By id   *** *****
